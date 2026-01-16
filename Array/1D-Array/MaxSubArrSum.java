@@ -9,7 +9,7 @@ public class MaxSubArrSum {
         int maxsum = Integer.MIN_VALUE;
         while(i <= marks.length-1){
             int currsum = marks[i];
-            while(j <= marks.length-1){
+            while(j < marks.length-1){
                 currsum += marks[j];
                 if(currsum > maxsum){
                     maxsum = currsum;
@@ -17,6 +17,10 @@ public class MaxSubArrSum {
                 j++;
             }
             if(j == marks.length-1){
+                currsum += marks[j];
+                if(currsum > maxsum){
+                    maxsum = currsum;
+                }
                 i = i+1;
                 j = i;
 
@@ -27,7 +31,8 @@ public class MaxSubArrSum {
         return maxsum;
     }
     public static void main(String args[]) {
-        int marks[] = {1, 2, -1, 3, 4, -8, -11, 12};
+        // int marks[] = {1, 2, -1, 3, 4, -8, -11, 12};
+        int marks[] = {1, 2, 3, 4};
 
         int sum = Maxsum(marks);
 
