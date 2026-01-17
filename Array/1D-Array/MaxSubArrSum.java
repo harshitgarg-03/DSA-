@@ -1,11 +1,11 @@
 import java.util.*;
 
 public class MaxSubArrSum {
-
+//  with tc => o(n^2).....
     public static int Maxsum(int marks[]) {
         
         int i = 0;
-        int j = i;
+        int j = i+1;
         int maxsum = Integer.MIN_VALUE;
         while(i <= marks.length-1){
             int currsum = marks[i];
@@ -13,6 +13,7 @@ public class MaxSubArrSum {
                 currsum += marks[j];
                 if(currsum > maxsum){
                     maxsum = currsum;
+                    System.out.println(currsum);
                 }
                 j++;
             }
@@ -20,9 +21,10 @@ public class MaxSubArrSum {
                 currsum += marks[j];
                 if(currsum > maxsum){
                     maxsum = currsum;
+                    System.out.println("final" + currsum);
                 }
                 i = i+1;
-                j = i;
+                j = i+1;
 
             }
 
@@ -31,8 +33,8 @@ public class MaxSubArrSum {
         return maxsum;
     }
     public static void main(String args[]) {
-        // int marks[] = {1, 2, -1, 3, 4, -8, -11, 12};
-        int marks[] = {1, 2, 3, 4};
+        int marks[] = {1, -2, 6, -1, 3};
+        // int marks[] = {1, 2, 3, 4};
 
         int sum = Maxsum(marks);
 
