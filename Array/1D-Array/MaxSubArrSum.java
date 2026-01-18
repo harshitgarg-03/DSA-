@@ -33,7 +33,7 @@ public class MaxSubArrSum {
         return maxsum;
     }
     public static void main(String args[]) {
-        int marks[] = {1, -2, 6, -1, 3};
+        int marks[] = {-2, -3, 4, -1, -2, 1, 5, -3 };
         // int marks[] = {1, 2, 3, 4};
 
         int sum = Maxsum(marks);
