@@ -13,9 +13,9 @@ public class MaxSubArrSum {
                 currsum += marks[j];
                 if (currsum > maxsum) {
                     maxsum = currsum;
-                    System.out.println(currsum);
+                    // System.out.println(currsum);
                 } else {
-                    System.out.println(currsum);
+                    // System.out.println(currsum);
 
                 }
                 j++;
@@ -24,16 +24,17 @@ public class MaxSubArrSum {
                 currsum += marks[j];
                 if (currsum > maxsum) {
                     maxsum = currsum;
-                    System.out.println("final" + currsum);
+                    // System.out.println("final" + currsum);
                 } else {
-                    System.out.println("--------------------------------" + currsum);
+                    // System.out.println("--------------------------------" + currsum);
                     // System.out.println("--------------------------------");
                 }
                 i = i + 1;
                 j = i + 1;
 
             } else {
-                System.out.println("loop over .! " + currsum);
+                // System.out.println("loop over .! " + currsum);
+                return maxsum;
 
             }
 
@@ -43,7 +44,7 @@ public class MaxSubArrSum {
     }
 
     public static void main(String args[]) {
-        int marks[] = { 2, 3, -8, 7, -1, 2, 3 };
+        int marks[] = {5, 4, 1, 7, 8};
         // int marks[] = {1, 2, 3, 4};
 
         int sum = Maxsum(marks);
