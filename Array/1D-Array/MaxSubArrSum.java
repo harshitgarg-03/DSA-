@@ -8,6 +8,10 @@ public class MaxSubArrSum {
         int j = i + 1;
         int maxsum = Integer.MIN_VALUE;
 
+        // check length of array
+        if (marks.length == 1) {
+            return marks[0];
+        }
         // checking all elements are -ve ...
         int count = 0;
         for (int k = 0; k < marks.length; k++) {
