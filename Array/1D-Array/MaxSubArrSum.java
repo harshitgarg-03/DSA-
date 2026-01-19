@@ -7,6 +7,18 @@ public class MaxSubArrSum {
         int i = 0;
         int j = i + 1;
         int maxsum = Integer.MIN_VALUE;
+
+        //  checking all elements are -ve ...
+        int count = 0;
+        for (int k = 0; k < marks.length; k++) {
+            if(marks[k] < 0){
+                count++;
+            }
+        }
+
+        if (count == marks.length){
+            return 0;
+        }
         while (i <= marks.length - 1) {
             int currsum = marks[i];
             while (j < marks.length - 1) {
@@ -44,7 +56,7 @@ public class MaxSubArrSum {
     }
 
     public static void main(String args[]) {
-        int marks[] = {5, 4, 1, 7, 8};
+        int marks[] = {-2, -4};
         // int marks[] = {1, 2, 3, 4};
 
         int sum = Maxsum(marks);
