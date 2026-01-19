@@ -17,7 +17,13 @@ public class MaxSubArrSum {
         }
 
         if (count == marks.length){
-            return 0;
+            int max = Integer.MIN_VALUE;
+            for (int k = 0; k < marks.length; k++) {
+                if(marks[k] > max){
+                    max = marks[k];
+                }
+            }
+            return max;
         }
         while (i <= marks.length - 1) {
             int currsum = marks[i];
