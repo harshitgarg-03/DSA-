@@ -28,7 +28,7 @@ public class MaxSubArrKadanes {
 
     public static void main(String args[]) {
         // int marks[] = {-2, -3, 4, -1, -2, 1, 5, -3 };
-        int marks[] = {-2, -3, -1, -10, -5};
+        int marks[] = {5, 4, 1, 7, 8};
         int maxsum = Maxsum(marks);
 
         if (maxsum == 0) {
