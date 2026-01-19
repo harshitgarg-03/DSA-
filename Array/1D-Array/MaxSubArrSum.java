@@ -8,26 +8,31 @@ public class MaxSubArrSum {
         int j = i + 1;
         int maxsum = Integer.MIN_VALUE;
 
-        //  checking all elements are -ve ...
+        // checking all elements are -ve ...
         int count = 0;
         for (int k = 0; k < marks.length; k++) {
-            if(marks[k] < 0){
+            if (marks[k] < 0) {
                 count++;
             }
+
         }
 
-        if (count == marks.length){
+        if (count == marks.length) {
             int max = Integer.MIN_VALUE;
             for (int k = 0; k < marks.length; k++) {
-                if(marks[k] > max){
+                if (marks[k] > max) {
                     max = marks[k];
                 }
             }
             return max;
         }
+        // -----------------------
+
         while (i <= marks.length - 1) {
+            System.out.println("enter here ");
             int currsum = marks[i];
             while (j < marks.length - 1) {
+
                 currsum += marks[j];
                 if (currsum > maxsum) {
                     maxsum = currsum;
@@ -38,22 +43,17 @@ public class MaxSubArrSum {
                 }
                 j++;
             }
+
             if (j == marks.length - 1) {
                 currsum += marks[j];
                 if (currsum > maxsum) {
                     maxsum = currsum;
-                    // System.out.println("final" + currsum);
-                } else {
-                    // System.out.println("--------------------------------" + currsum);
-                    // System.out.println("--------------------------------");
                 }
                 i = i + 1;
                 j = i + 1;
 
             } else {
-                // System.out.println("loop over .! " + currsum);
                 return maxsum;
-
             }
 
         }
@@ -62,7 +62,7 @@ public class MaxSubArrSum {
     }
 
     public static void main(String args[]) {
-        int marks[] = {-2, -4};
+        int marks[] = { 1 };
         // int marks[] = {1, 2, 3, 4};
 
         int sum = Maxsum(marks);
