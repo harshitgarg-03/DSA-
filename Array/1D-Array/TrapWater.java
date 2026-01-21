@@ -44,7 +44,7 @@ public class TrapWater {
      */
 
     public static int Leftmax(int i) {
-        int marks[] = {4,2,0,3,2,5};
+        int marks[] = {0,1,0,2,1,0,1,3,2,1,2,1};
 
         int ms = marks[0];
 
@@ -55,7 +55,7 @@ public class TrapWater {
     }
 
     public static int Rightmax(int i) {
-        int marks[] = {4,2,0,3,2,5};
+        int marks[] = {0,1,0,2,1,0,1,3,2,1,2,1};
 
         int ms = marks[marks.length - 1];
 
@@ -88,7 +88,7 @@ public class TrapWater {
     }
 
     public static void main(String args[]) {
-        int marks[] = {4,2,0,3,2,5};
+        int marks[] = {0,1,0,2,1,0,1,3,2,1,2,1};
         int TrappedWater = trappingH2O(marks);
 
         System.out.println("Trapped water between building : " + TrappedWater);
