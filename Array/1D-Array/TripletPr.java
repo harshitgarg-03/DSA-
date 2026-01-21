@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class TripletPr {
+
+    public static void findtriplet(int marks[]) {
+        
+        if(marks.length < 3){
+            System.out.println("Element length not exist for triplet..!");
+            return;
+        }
+        int fs = marks[0];
+        int ls = marks[marks.length-1];
+        int k = marks.length-2;
+        while (k > 2) {
+            for(int i = 1; i <= k; i++ ){
+                if((ls + fs + marks[i]) == 0){
+                    System.out.println(fs + " " + ls + " " + marks[i]);
+                }
+            }
+            System.out.println("ls"+ ls);
+            System.out.println("k"+ k);
+            ls = marks[k];
+            k--;
+        }
+    }
+    public static void main(String args[]) {
+        int marks[] = {-1, 0, 1, 2, -1, -4};
+
+        findtriplet(marks);
+    }
+}
