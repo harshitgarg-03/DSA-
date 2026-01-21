@@ -2,6 +2,7 @@ import java.util.*;
 
 public class RotatedArr {
 
+    // check given target in array then return its idx 
     public static int SortedArray(int marks[], int target) {
         for (int i = 0; i < marks.length; i++) {
             if(marks[i] == target){
