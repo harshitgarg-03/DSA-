@@ -43,23 +43,20 @@ public class TrapWater {
      * 
      */
 
-    public static int Leftmax(int i) {
-        int marks[] = {0,1,0,2,1,0,1,3,2,1,2,1};
-
+    public static int Leftmax(int marks[], int i) {
         int ms = marks[0];
 
-        for (int k = 0; k < i; k++) {
+        for (int k = 0; k <= i; k++) {
             ms = Math.max(ms, marks[k]);
         }
         return ms;
     }
 
-    public static int Rightmax(int i) {
-        int marks[] = {0,1,0,2,1,0,1,3,2,1,2,1};
+    public static int Rightmax(int marks[], int i) {
 
         int ms = marks[marks.length - 1];
 
-        for (int k = i + 1; k < marks.length; k++) {
+        for (int k = i; k < marks.length - 1; k++) {
             ms = Math.max(ms, marks[k]);
         }
         return ms;
@@ -70,25 +67,16 @@ public class TrapWater {
         int maxleft;
         int maxright;
         for (int i = 1; i < marks.length - 1; i++) {
-            maxleft = Leftmax(i);
-            maxright = Rightmax(i);
-            int sortedarray[] = marks.clone();
-            Arrays.sort(sortedarray);
-            if (maxleft < marks[i] && maxright < marks[i]) {
-                continue;
-            } else if (Arrays.equals(marks, sortedarray)) {
-                break;
-            } else {
-                int min = Math.min(maxright, maxleft);
-                counttrapwater += (min - marks[i]);
-            }
+            maxleft = Leftmax(marks, i);
+            maxright = Rightmax(marks, i);
+            int min = Math.min(maxright, maxleft);
+            counttrapwater += (min - marks[i]);
         }
-
         return counttrapwater;
     }
 
     public static void main(String args[]) {
-        int marks[] = {0,1,0,2,1,0,1,3,2,1,2,1};
+        int marks[] = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
         int TrappedWater = trappingH2O(marks);
 
         System.out.println("Trapped water between building : " + TrappedWater);
