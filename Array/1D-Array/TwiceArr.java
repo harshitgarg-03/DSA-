@@ -49,7 +49,6 @@ public class TwiceArr {
                 return;
             }
         }
-
         System.out.println("no duplicate exist .!");
     }
 }
