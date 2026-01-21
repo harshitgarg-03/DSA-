@@ -77,7 +77,7 @@ public class TrapWater {
             if (maxleft < marks[i] && maxright < marks[i]) {
                 continue;
             } else if (Arrays.equals(marks, sortedarray)) {
-                continue;
+                break;
             } else {
                 int min = Math.min(maxright, maxleft);
                 counttrapwater += (min - marks[i]);
