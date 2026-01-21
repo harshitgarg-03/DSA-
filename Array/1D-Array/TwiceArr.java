@@ -2,6 +2,8 @@ import java.util.*;
 
 public class TwiceArr {
 
+    // Longest Method 
+/* 
     public static boolean checkingtwice(int clonearray[], int i) {
         int count = 0;
 
@@ -34,5 +36,20 @@ public class TwiceArr {
         int marks[] = { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 };
         twicefind(marks);
     }
-    
+*/
+
+    // Short Trick 
+
+    public static void main(String args[]) {
+        int marks[] = { 1, 2, 3, 4};
+        for (int i = 0; i < marks.length-1; i++) {
+            int result = (marks[i] ^ marks[i+1]);
+            if(result == 0){
+                System.out.println("duplicate exist .!");
+                return;
+            }
+        }
+
+        System.out.println("no duplicate exist .!");
+    }
 }
