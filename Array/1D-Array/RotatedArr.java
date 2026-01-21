@@ -12,10 +12,8 @@ public class RotatedArr {
     }
     public static void main(String args[]) {
         int marks[] = {1};
-
         int target = 0;
         int result = SortedArray(marks, target);
         System.out.println(result);
-
     }
 }
