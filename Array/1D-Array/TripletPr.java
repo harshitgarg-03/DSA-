@@ -21,6 +21,7 @@ public class TripletPr {
                     System.out.println(fs + " " + marks[i] + " " + ls );
                 }
             }
+            
             System.out.println("ls"+ ls);
             System.out.println("k"+ k);
             k--;
