@@ -55,7 +55,7 @@ public class TripletPr {
     }
 
     public static void main(String args[]) {
-        int marks[] = {0,0,0};
+        int marks[] = {0};
 
         findtriplet(marks);
     }
