@@ -47,6 +47,7 @@ public class TripletPr {
                     list.add(arr);
                 }
             }
+            i = i+1;
         }
         for (int j = 0; j < list.size(); j++) {
             System.out.println(Arrays.toString(list.get(j)));
