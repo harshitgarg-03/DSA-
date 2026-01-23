@@ -20,6 +20,7 @@ public class TripletPr {
             int Ft = marks[i];
             int St = marks[i + 1];
 
+            // if(i > 0 && marks[i] == marks[i-1]) continue; // TO AVOID DUPLICACY .. IT CAN BE MORE OPTIMIZED 
             for (int j = i + 2; j < marks.length; j++) {
                 if ((Ft + St + marks[j]) == 0) {
                     int arr[] = { Ft, St, marks[j] };
@@ -34,7 +35,7 @@ public class TripletPr {
     }
 
     public static void main(String args[]) {
-        int marks[] = {0};
+        int marks[] = {-1, 0, 1, 2, -1, -4};
 
         findtriplet(marks);
     }
