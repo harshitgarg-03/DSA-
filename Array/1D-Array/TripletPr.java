@@ -48,8 +48,8 @@ public class TripletPr {
                 }
             }
         }
-        for (int j = 0; j < list.length; j++) {
-            System.out.println(list[j]);
+        for (int j = 0; j < list.size(); j++) {
+            System.out.println(Arrays.toString(list.get(j)));
         }
     }
 
