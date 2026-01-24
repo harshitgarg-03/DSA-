@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class TripletPr {
-
+// extract 3 sum without using hasging algorithm..
     public static void findtriplet(int marks[]) {
 
         if (marks.length < 3) {
