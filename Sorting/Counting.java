@@ -10,7 +10,9 @@ public class Counting {
         int countarr[] = new int[max+1];
         
         
-        for()
+        for(int i = 0; i < countarr.length; i++){
+
+        }
 
     }
     public static void main(String args[]) {
