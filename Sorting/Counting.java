@@ -15,7 +15,13 @@ public class Counting {
             countarr[val]++;
         }
 
-        
+        for(int i = 0; i < countarr.length; i++){
+            int count = countarr[i];
+            while(count > 0){
+                System.out.print(i + " ");
+                count--;
+            }
+        }
     }
     public static void main(String args[]) {
         int marks[] = {1, 2, 1, 0, 0, 1, 4, 3, 3};
