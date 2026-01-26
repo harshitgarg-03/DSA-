@@ -2,6 +2,11 @@ import java.util.*;
 
 public class Counting {
     public static void countingSort(int marks[]) {
+        int max = 0;
+        for (int index = 0; index < marks.length; index++) {
+            max = Math.max(max, marks[index]);
+        }
+
         
     }
     public static void main(String args[]) {
