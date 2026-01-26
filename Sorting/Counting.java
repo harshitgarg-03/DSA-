@@ -10,13 +10,15 @@ public class Counting {
         int countarr[] = new int[max+1];
         
         
-        for(int i = 0; i < countarr.length; i++){
-
+        for(int i = 0; i < marks.length; i++){
+            int val = marks[i];
+            countarr[val]++;
         }
 
+        
     }
     public static void main(String args[]) {
-        int marks[] = {5, 4, 1, 3, 2};
+        int marks[] = {1, 2, 1, 0, 0, 1, 4, 3, 3};
         countingSort(marks);
     }
 }
