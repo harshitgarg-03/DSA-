@@ -7,7 +7,11 @@ public class Counting {
             max = Math.max(max, marks[index]);
         }
 
+        int countarr[] = new int[max+1];
         
+        
+        for()
+
     }
     public static void main(String args[]) {
         int marks[] = {5, 4, 1, 3, 2};
