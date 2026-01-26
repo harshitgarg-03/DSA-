@@ -11,7 +11,10 @@ public class Insertion {
                 prev--;
             }
 
-            marks[prev+1] = marks[curr];
+            if(marks[prev+1] > marks[curr]){
+                marks[prev+1] = marks[curr];
+
+            }
         }
 
         for(int i = 0; i < marks.length; i++){
