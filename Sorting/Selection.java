@@ -27,7 +27,7 @@ public class Selection {
     }
 
     public static void main(String args[]) {
-        int marks[] = { 5,2,3,1 };
+        int marks[] = { 5,2,3,1, 4 };
         SelectionSort(marks);
     }
 }
