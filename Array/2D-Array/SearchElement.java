@@ -3,71 +3,30 @@ import java.util.*;
 /*3 Approch to solve this question 
 (1) Linear Search(n2)
 (2) Binary Search(nlog(n))
-(3) StairCase Search(o(n*m))
+(3) StairCase Search(o(n+m))
 */
 public class SearchElement {
     public static void SearchingKey(int marks[][], int target) {
         int row = 0;
-        int col = marks[0].length - 1;
+    int col = marks[0].length - 1; // top-right
 
-        while (row < marks.length && col >= 0) {
-            if (marks[row][col] == target) {
-                System.out.println("Key Found at " + row + " , " + col);
-                break;
-            }
+    while (row < marks.length && col >= 0) {
 
-            else if ((marks[row][col - 1] < target && (marks[row + 1][col] < target))) {
-                int colElem = marks[row][col - 1];
-                int rowElem = marks[row + 1][col];
-                System.out.println(marks[row][col]);
-
-                if (colElem > rowElem) {
-                    col--;
-                } else {
-                    row++;
-                }
-
-            }
-
-            else if ((marks[row][col - 1] > target && (marks[row + 1][col] > target))) {
-                int colElem = marks[row][col - 1];
-                int rowElem = marks[row + 1][col];
-                System.out.println(marks[row][col]);
-                if (colElem < rowElem) {
-                    col--;
-                } else {
-                    row++;
-                }
-            }
-
-            else if ((marks[row][col - 1] < target && (marks[row + 1][col] > target))) {
-                System.out.println(marks[row][col]);
-                col--;
-            }
+        if (marks[row][col] == target) {
+            System.out.println("Key Found at " + row + " , " + col);
+            return;
         }
 
-            if (row < marks.length && col < 0) {
-                while (row < marks.length) {
-                    if (marks[row][col] == target) {
-                        System.out.println("Key Found at " + row + " , " + col);
-                        break;
-                    }
-                    System.out.println(marks[row][col]);
-                    row++;
-                }
-            }
-            if (row >= marks.length && col >= 0) {
-            while (col >= 0) {
-                if (marks[row][col] == target) {
-                    System.out.println("Key Found at " + row + " , " + col);
-                    break;
-                }
-                System.out.println(marks[row][col]);
-                col--;
-            }
+        else if (marks[row][col] > target) {
+            col--;
         }
-    
-        System.out.println("Element not exist in this matrix..");
+
+        else {
+            row++; 
+        }
+    }
+
+    System.out.println("Key Not Found");
     }
 
     public static void main(String args[]) {
