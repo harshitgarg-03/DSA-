@@ -36,10 +36,22 @@ public class CreationMatrix {
         }
         System.out.println("Key not found ");
     }
+    public static void LargestElement(int marks[][]) {
+        int n = marks.length;
+        int m = marks[0].length;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+               max = Math.max(max, marks[i][j]);
+            }
+        }
+        System.out.println("Maximum integer is  " + max);
+    }
 
     public static void main(String args[]) {
         int marks[][] = new int[3][3];
         BuildMatrix(marks);
-        SearchingKey(marks, 5);
+        // SearchingKey(marks, 10);
+        LargestElement(marks);
     }
 }
