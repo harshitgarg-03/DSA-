@@ -16,9 +16,10 @@ public class SearchElement {
                 break;
             }
 
-            if ((marks[row][col - 1] < target && marks[row - 1][col] < target)) {
+            else if ((marks[row][col - 1] < target && (marks[row + 1][col] < target))) {
                 int colElem = marks[row][col - 1];
-                int rowElem = marks[row - 1][col];
+                int rowElem = marks[row + 1][col];
+                System.out.println(marks[row][col]);
 
                 if (colElem > rowElem) {
                     col--;
@@ -28,10 +29,10 @@ public class SearchElement {
 
             }
 
-            if ((marks[row][col - 1] > target && marks[row - 1][col] > target)) {
+            else if ((marks[row][col - 1] > target && (marks[row + 1][col] > target))) {
                 int colElem = marks[row][col - 1];
-                int rowElem = marks[row - 1][col];
-
+                int rowElem = marks[row + 1][col];
+                System.out.println(marks[row][col]);
                 if (colElem < rowElem) {
                     col--;
                 } else {
@@ -39,7 +40,8 @@ public class SearchElement {
                 }
             }
 
-            if ((marks[row][col - 1] < target && marks[row - 1][col] > target)) {
+            else if ((marks[row][col - 1] < target && (marks[row + 1][col] > target))) {
+                System.out.println(marks[row][col]);
                 col--;
             }
         }
@@ -50,6 +52,7 @@ public class SearchElement {
                         System.out.println("Key Found at " + row + " , " + col);
                         break;
                     }
+                    System.out.println(marks[row][col]);
                     row++;
                 }
             }
@@ -59,6 +62,7 @@ public class SearchElement {
                     System.out.println("Key Found at " + row + " , " + col);
                     break;
                 }
+                System.out.println(marks[row][col]);
                 col--;
             }
         }
