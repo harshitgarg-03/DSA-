@@ -4,7 +4,14 @@ import java.util.*;
 
 public class SpiralMatrix {
     public static void SpiralElements(int marks[][]) {
-        
+        int startrow = 0;
+        int startcol = 0;
+        int endrow = marks.length;
+        int endcol = marks[0].length;
+
+        while(startrow < endrow && startcol < endcol){
+            // top
+        }
     }
     public static void main(String args[]) {
         int marks[][] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 1, 2, 3 }, { 4, 5, 6, 7 } };
