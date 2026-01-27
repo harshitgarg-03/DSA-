@@ -13,12 +13,57 @@ public class SearchElement {
         while (row < marks.length && col >= 0) {
             if (marks[row][col] == target) {
                 System.out.println("Key Found at " + row + " , " + col);
+                break;
             }
 
-            if ((marks[row][col - 1] < target || marks[row - 1][col] < target)) {
+            if ((marks[row][col - 1] < target && marks[row - 1][col] < target)) {
+                int colElem = marks[row][col - 1];
+                int rowElem = marks[row - 1][col];
 
+                if (colElem > rowElem) {
+                    col--;
+                } else {
+                    row++;
+                }
+
+            }
+
+            if ((marks[row][col - 1] > target && marks[row - 1][col] > target)) {
+                int colElem = marks[row][col - 1];
+                int rowElem = marks[row - 1][col];
+
+                if (colElem < rowElem) {
+                    col--;
+                } else {
+                    row++;
+                }
+            }
+
+            if ((marks[row][col - 1] < target && marks[row - 1][col] > target)) {
+                col--;
             }
         }
+
+            if (row < marks.length && col < 0) {
+                while (row < marks.length) {
+                    if (marks[row][col] == target) {
+                        System.out.println("Key Found at " + row + " , " + col);
+                        break;
+                    }
+                    row++;
+                }
+            }
+            if (row >= marks.length && col >= 0) {
+            while (col >= 0) {
+                if (marks[row][col] == target) {
+                    System.out.println("Key Found at " + row + " , " + col);
+                    break;
+                }
+                col--;
+            }
+        }
+    
+        System.out.println("Element not exist in this matrix..");
     }
 
     public static void main(String args[]) {
