@@ -1,6 +1,7 @@
 import java.util.*;
 
-// Construct matrix and applying some basic operations (finding, searching, largestfind. smalledtfinds)
+// Construct matrix and applying some basic 
+// operations (finding, searching, largestfind. smalledtfinds)
 
 public class CreationMatrix {
 
