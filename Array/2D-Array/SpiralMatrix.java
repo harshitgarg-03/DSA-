@@ -11,11 +11,11 @@ public class SpiralMatrix {
 
         while(startrow <= endrow && startcol <= endcol){
             // top
-            for (int i = startcol; i < endcol; i++){
+            for (int i = startcol; i <= endcol; i++){
                 System.out.print(marks[startrow][i] + " ");
             }
             // right
-            for (int i = startrow+1; i < endrow; i++){
+            for (int i = startrow+1; i <= endrow; i++){
                 System.out.print(marks[i][endcol] + " ");
             }
             // bottom
@@ -23,8 +23,8 @@ public class SpiralMatrix {
                 System.out.print(marks[endrow][i] + " ");
             }
             // left
-            for (int i = endrow-1; i >= startcol+1; i--){
-                System.out.print(marks[endrow][startcol] + " ");
+            for (int i = endrow-1; i >= startrow+1; i--){
+                System.out.print(marks[i][startcol] + " ");
             }
 
             startrow++;
