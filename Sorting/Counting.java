@@ -24,7 +24,7 @@ public class Counting {
         }
     }
     public static void main(String args[]) {
-        int marks[] = {1, 4, 0, 2, 1, 1};
+        int marks[] = {1, 4, 1, 3, 2, 4, 3, 7};
         countingSort(marks);
     }
 }
