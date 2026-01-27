@@ -1,6 +1,7 @@
 import java.util.*;
-public class DiagonalSum  {
-public static void main(String args[]) {
 
-}
+public class DiagonalSum {
+    public static void main(String args[]) {
+
+    }
 }
