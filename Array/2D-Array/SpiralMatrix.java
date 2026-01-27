@@ -9,6 +9,7 @@ public class SpiralMatrix {
         int endrow = marks.length - 1;
         int endcol = marks[0].length - 1;
 
+
         while (startrow <= endrow && startcol <= endcol) {
             // top
             for (int i = startcol; i <= endcol; i++) {
@@ -20,13 +21,15 @@ public class SpiralMatrix {
             }
             // bottom
             for (int i = endcol - 1; i >= startcol; i--) {
+                if(startrow == endrow) break;
                 System.out.print(marks[endrow][i] + " ");
             }
             // left
             for (int i = endrow - 1; i >= startrow + 1; i--) {
+                if(startcol == endcol) break;
                 System.out.print(marks[i][startcol] + " ");
             }
-
+            System.out.println("enter");
             startrow++;
             startcol++;
             endrow--;
@@ -36,10 +39,7 @@ public class SpiralMatrix {
     }
 
     public static void main(String args[]) {
-        int marks[][] = { { 1, 2, 3, 4 },
-                { 5, 6, 7, 8 },
-                { 9, 10, 11, 12 },
-                { 13, 14, 15, 16 } };
+        int marks[][] = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         SpiralElements(marks);
     }
 }
