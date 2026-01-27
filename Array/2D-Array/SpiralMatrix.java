@@ -6,10 +6,10 @@ public class SpiralMatrix {
     public static void SpiralElements(int marks[][]) {
         int startrow = 0;
         int startcol = 0;
-        int endrow = marks.length;
-        int endcol = marks[0].length;
+        int endrow = marks.length-1;
+        int endcol = marks[0].length-1;
 
-        while(startrow < endrow && startcol < endcol){
+        while(startrow <= endrow && startcol <= endcol){
             // top
             for (int i = startcol; i < endcol; i++){
                 System.out.print(marks[startrow][i] + " ");
