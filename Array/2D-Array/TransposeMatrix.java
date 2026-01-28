@@ -1,13 +1,14 @@
 import java.util.*;
 
 public class TransposeMatrix {
+
     public static void main(String args[]) {
-        int marks[][] = {{1,2,3},{4,5,6}};
+        int marks[][] = { { 1, 2, 3 }, { 4, 5, 6 }, {7, 8, 9} };
         int n = marks.length;
         int m = marks[0].length;
 
         // Square Matrix then TC(O(N2)) and SC(O(1))
-        if ( n == m ){
+        if (n == m) {
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
                     System.out.print(marks[j][i] + " ");
@@ -18,13 +19,23 @@ public class TransposeMatrix {
 
         // Not Square Matrix then TC(O(M*N)) and SC(O(M*N))
         else {
+            int newMatrix[][] = new int[m][n];
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
-                    System.out.print(marks[j][i] + " ");
+                    newMatrix[j][i] = marks[i][j];
+                }
+
+            }
+            // Print transose matrix
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.print(newMatrix[i][j] + " ");
+
                 }
                 System.out.println("");
+
             }
         }
-     
+
     }
 }
