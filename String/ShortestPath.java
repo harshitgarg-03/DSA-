@@ -28,11 +28,11 @@ public class ShortestPath {
 
         double Shortpath = Math.sqrt(xdirsum+ydirsum);
 
-        System.out.println("x : " + x + "  , Y : " + y);
+        // System.out.println("x : " + x + "  , Y : " + y);
         System.out.println("Shortest path is : " + Shortpath);
     }
     public static void main(String args[]) {
-        String str = "WNEENESENNN";
+        String str = "NS";
 
         ShortestWay(str);
     }
