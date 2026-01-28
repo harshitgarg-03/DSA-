@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class ShortestPath {
-    public static void ShortestPath(String str) {
+    public static void ShortestWay(String str) {
         int x1 = 0;
         int y1 = 0;
 
@@ -15,6 +15,6 @@ public class ShortestPath {
     public static void main(String args[]) {
         String str = "WNEENESENNN";
 
-        ShortestPath(str);
+        ShortestWay(str);
     }
 }
