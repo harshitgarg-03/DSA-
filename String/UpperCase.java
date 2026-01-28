@@ -22,7 +22,7 @@ public class UpperCase {
     }
 
     public static void main(String args[]) {
-        String str = "i am a harshit garg ";
+        String str = "capiTalIze tHe titLe";
 
         convertUppercase(str);
     }
