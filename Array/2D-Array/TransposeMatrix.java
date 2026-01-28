@@ -17,14 +17,14 @@ public class TransposeMatrix {
         }
 
         // Not Square Matrix then TC(O(M*N)) and SC(O(M*N))
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                System.out.print(marks[j][i] + " ");
+        else {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    System.out.print(marks[j][i] + " ");
+                }
+                System.out.println("");
             }
-            System.out.println("");
         }
-
-
-
+     
     }
 }
