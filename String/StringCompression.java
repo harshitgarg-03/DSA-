@@ -2,7 +2,7 @@ import java.util.*;
 
 public class StringCompression {
     public static void main(String args[]) {
-        String str[] = {"a","a","b","b","c","c","c"};
+        String str[] = {"a","b","b","b","b","b","b","b","b","b","b","b","b"};
 
         ArrayList<String> newstr = new ArrayList<>();
         Integer count = 1;
@@ -18,7 +18,7 @@ public class StringCompression {
                     newstr.add(str[i]);
                 } else {
                     newstr.add(str[i]);
-                    newstr.add(count.toString());
+                    newstr.add(String.valueOf(count));
                     count = 1;
                 }
             }
