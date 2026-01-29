@@ -38,7 +38,7 @@ public class StringCompression {
         for (int i = 0; i < newstr.size(); i++){
             System.out.print(newstr.get(i) + " ");
         }
-        
+
         System.out.println();
         System.out.println("Size of a list is : " + newstr.size());
     }
