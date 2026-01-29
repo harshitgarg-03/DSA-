@@ -1,0 +1,23 @@
+Inter Method in string 
+
+intern() method String Pool ke saath related hota hai.
+Java me ek special memory area hota hai jahan same strings ko reuse kiya jata hai taaki memory save ho.
+
+Ye check karta hai:
+👉 Agar same value ka string already pool me hai, to uska reference de deta hai.
+👉 Nahi hai, to usko pool me add karke reference deta hai.
+
+
+-------------------------------------------------------------------------------------------------
+
+StringBuffer in Java
+
+StringBuffer = Mutable String // JO change ho skti h Although string are immutable
+
+String vs StringBuffer vs StringBuilder
+
+Feature	    String	StringBuffer	StringBuilder
+Mutable	    No	        Yes	            Yes
+ThreadSafe	Yes	        Yes	            No
+Speed	    Slow	    Medium	        Fast
+                        Synchronized    no sync.
