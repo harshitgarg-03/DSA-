@@ -21,3 +21,11 @@ Mutable	    No	        Yes	            Yes
 ThreadSafe	Yes	        Yes	            No
 Speed	    Slow	    Medium	        Fast
                         Synchronized    no sync.
+
+
+
+
+What are anagrams?
+Iftwostringscontainthesamecharactersbutinadifferentorder,theycanbesaidtobeanagrams.
+Considerraceandcare.Inthiscase,race'scharacterscanbeformedintoastudy,orcare'scharacterscanbeformedintorace.
+Belowisajavaprogramtocheckiftwostringsare anagrams or not
