@@ -1,14 +1,14 @@
 Always be rememeber whenever applied not(~) of any nuumber then it will be return opposite sign
 like (+ve => -ve, -ve => +ve | 0)
+in negation direct add 1 and attach opposite sign of given number
+
 
 Formula of left shift (<<)
-
 suppose a << b = a*2^b
 like ex => 5 << 2 = 5*2^2 = 20
 
 
 Formula of right shift (>>)
-
 suppose a >> b = a/2^b
 like ex => 6 >> 1 = 6/2^1 = 3
 
