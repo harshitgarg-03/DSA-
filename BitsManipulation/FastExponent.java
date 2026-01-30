@@ -14,8 +14,8 @@ public class FastExponent {
         System.out.println("the power of thr number is " + ans);
     }
     public static void main(String args[]) {
-        int num = 2;
-        int pow = 3;
+        int num = 3;
+        int pow = 5;
 
         CalculateExponent(num, pow);
     }
