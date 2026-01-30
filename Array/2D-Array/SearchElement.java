@@ -8,7 +8,7 @@ import java.util.*;
 public class SearchElement {
     public static void SearchingKey(int marks[][], int target) {
         int row = 0;
-    int col = marks[0].length - 1; // top-right
+        int col = marks[0].length - 1;
 
     while (row < marks.length && col >= 0) {
 
