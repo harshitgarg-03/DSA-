@@ -14,12 +14,21 @@ like ex => 6 >> 1 = 6/2^1 = 3
 
 
 Getting of ith bit 
-givennumber&(i << 1)
+givennumber&(1 << i)
 
 
 Setting of ith bit 
-givennumber|(i << 1)
+givennumber|(1 << i)
 
 
 Clear of ith bit 
-givennumber&~(i << 1)
+givennumber&~(1 << i)
+
+
+updatign of ith bit
+given => n, i, newbit
+n = clerbit(n , i);
+bitmask = newbit << 1
+return n | bitmask
+
+
