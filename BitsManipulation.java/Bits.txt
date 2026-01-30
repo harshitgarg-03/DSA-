@@ -31,4 +31,6 @@ n = clerbit(n , i);
 bitmask = newbit << 1
 return n | bitmask
 
-
+clearing of last ith bit
+bitmask = (~0) << i
+return number&bitmask
