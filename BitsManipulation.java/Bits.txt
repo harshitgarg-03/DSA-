@@ -1,0 +1,2 @@
+Always be rememeber whenever applied not(~) of any nuumber then it will be return opposite sign
+like (+ve => -ve, -ve => +ve | 0)
