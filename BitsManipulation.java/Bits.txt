@@ -12,3 +12,14 @@ Formula of right shift (>>)
 suppose a >> b = a/2^b
 like ex => 6 >> 1 = 6/2^1 = 3
 
+
+Getting of ith bit 
+givennumber&(i << 1)
+
+
+Setting of ith bit 
+givennumber|(i << 1)
+
+
+Getting of ith bit 
+givennumber&(i << 1)
