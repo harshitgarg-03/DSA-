@@ -5,3 +5,10 @@ Formula of left shift (<<)
 
 suppose a << b = a*2^b
 like ex => 5 << 2 = 5*2^2 = 20
+
+
+Formula of right shift (>>)
+
+suppose a >> b = a/2^b
+like ex => 6 >> 1 = 6/2^1 = 30
+
