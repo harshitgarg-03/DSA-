@@ -1,4 +1,3 @@
-
 public class Power2OrNot {
     public static void main(String args[]) {
         int n = 16;
