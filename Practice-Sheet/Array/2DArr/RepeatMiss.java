@@ -31,7 +31,7 @@ public class RepeatMiss {
         System.out.print("Missing Number is : " + (missingNum));
     }
     public static void main(String args[]) {
-        int marks[][] = {{1,3},{2,2}};
+        int marks[][] = {{9,1,7},{8,9,2},{3,4,6}};
         GetRepeatMissNum(marks);
     }
 }
