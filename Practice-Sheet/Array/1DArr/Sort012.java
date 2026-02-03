@@ -1,6 +1,7 @@
 import java.util.*;
-public class Sort012 {
-public static void main(String args[]) {
 
-}
+public class Sort012 {
+    public static void main(String args[]) {
+
+    }
 }
