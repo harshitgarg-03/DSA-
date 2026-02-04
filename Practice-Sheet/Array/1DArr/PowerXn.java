@@ -4,7 +4,7 @@ public class PowerXn {
     public static void main(String args[]) {
         int x = 2;
         int n = 2;
-        int pow = Math.abs(n);
+        long pow = Math.abs((long)n);
         double ans = 1;
         while (pow != 0) {
             if ((pow & 1) == 1) {
