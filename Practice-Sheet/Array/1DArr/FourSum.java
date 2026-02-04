@@ -1,6 +1,7 @@
 import java.util.*;
-public class FourSum {
-public static void main(String args[]) {
 
-}
+public class FourSum {
+    public static void main(String args[]) {
+
+    }
 }
