@@ -1,6 +1,7 @@
 import java.util.*;
-public class ThreeSum {
-public static void main(String args[]) {
 
-}
+public class ThreeSum {
+    public static void main(String args[]) {
+
+    }
 }
