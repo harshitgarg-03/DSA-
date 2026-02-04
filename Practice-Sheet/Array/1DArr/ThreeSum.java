@@ -28,8 +28,10 @@ public class ThreeSum {
             }
             i++;
         }
-    
-        System.out.println(list);
+        Set<List<Integer>> set = new LinkedHashSet<>(list);
+        List<List<Integer>> uniquelist = new ArrayList<>(set);
+
+        System.out.println(uniquelist);
     }
 
     public static void main(String args[]) {
