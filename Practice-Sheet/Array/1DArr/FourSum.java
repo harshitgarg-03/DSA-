@@ -7,7 +7,7 @@ public class FourSum {
         int j = nums.length - 1;
         List<List<Integer>> list = new ArrayList<>();
         Arrays.sort(nums);
-        while (i < nums.length - 3) {
+        while (i <  nums.length-3) {
             int left = i + 1;
             int right = j - 1;
 
@@ -29,6 +29,7 @@ public class FourSum {
                 }
             }
             i++;
+            j--;
         }
     
         Set<List<Integer>> set = new LinkedHashSet<>(list);
@@ -39,7 +40,7 @@ public class FourSum {
     }
 
     public static void main(String args[]) {
-        int nums[] = { 1, 0, -1, 0, -2, 2 };
+        int nums[] = {-3,-1,0,2,4,5};
         int target = 0;
 
         GettingSum(nums, target);
