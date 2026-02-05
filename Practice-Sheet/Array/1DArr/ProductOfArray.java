@@ -1,5 +1,5 @@
 import java.util.*;
-public class  {
+public class ProductOfArray {
 public static void main(String args[]) {
 
 }
