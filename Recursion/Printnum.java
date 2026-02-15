@@ -3,10 +3,9 @@ import java.util.*;
 public class Printnum {
     public static int Printingnum(int num) {
         if (num >= 0){
-            int sum = num + Printingnum(num -1);
+            return num + Printingnum(num -1);
         }
-
-        
+        return 0;
     }
     public static void main(String args[]) {
         int num = 10;
