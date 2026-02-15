@@ -2,15 +2,15 @@ import java.util.*;
 
 public class Printnum {
     public static int Printingnum(int num) {
-        int sum;
-        if(num == 0){
-            return sum; 
+        if (num >= 0){
+            int sum = num + Printingnum(num -1);
         }
 
-        sum = num + Printingnum(num -1);
+        
     }
     public static void main(String args[]) {
         int num = 10;
-        Printingnum(10);
+        int sum = Printingnum(10);
+        System.out.println("Sum of the number is :"+ sum);
     }
 }
