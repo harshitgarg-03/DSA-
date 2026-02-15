@@ -1,5 +1,5 @@
 import java.util.*;
-public class  {
+public class Printnumbers {
 public static void main(String args[]) {
 
 }
