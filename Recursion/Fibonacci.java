@@ -12,7 +12,7 @@ public class Fibonacci {
     }
 
     public static void main(String args[]) {
-        int n = 5;
+        int n = 8;
         int sum = FibSeries(n);
         System.out.println(sum);
     }
