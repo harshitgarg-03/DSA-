@@ -1,4 +1,3 @@
-import java.util.*;
 
 public class Factorialnum {
     public static int Factornum(int num) {
