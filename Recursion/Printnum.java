@@ -1,5 +1,5 @@
 import java.util.*;
-
+// printinng the sum of number 
 public class Printnum {
     public static int Printingnum(int num) {
         if (num >= 0){
