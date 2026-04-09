@@ -1,4 +1,3 @@
-import java.util.*;
 // printinng the sum of number 
 public class Printnum {
     public static int Printingnum(int num) {
@@ -9,7 +8,7 @@ public class Printnum {
     }
     public static void main(String args[]) {
         int num = 10;
-        int sum = Printingnum(10);
+        int sum = Printingnum(num);
         System.out.println("Sum of the number is :"+ sum);
     }
 }
