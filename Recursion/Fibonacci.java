@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Fibonacci {
     public static int FibSeries(int term) {
         if (term == 0 || term == 1) {
