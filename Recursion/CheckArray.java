@@ -10,6 +10,7 @@ public class CheckArray {
             sorted(arr, i+1);
         } else {
             System.out.println("false..");
+            return;
         }
     }
 
