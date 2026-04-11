@@ -10,6 +10,6 @@ public class FindOccurenceElement {
     }
     public static void main(String args[]) {
         int arr[] = {1, 4, 1, 2, 4, 5, 5, 1, 7, 8, 4, 7};
-        FindOccur(arr, 1, 0);
+        FindOccur(arr, 7, 0);
     }
 }
