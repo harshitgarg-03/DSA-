@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
 public class StringConvers {
-    public static void stringConvert(String num, int i, ArrayList<String> arr) {
+    public static void stringConvert(String num, int i) {
         if (i == num.length()) {
-            System.out.println("String is " + arr);
             return;
         }
 
@@ -19,14 +18,13 @@ public class StringConvers {
                 "eight",
                 "nine"
         };
-        
-        arr.add(numbersInWords[num.charAt(i)]);
-        stringConvert(num, i+1, arr);
+
+        int digit = (num.charAt(i) - '0');
+        System.out.print(numbersInWords[digit]);
+        stringConvert(num, i + 1);
     }
 
     public static void main(String args[]) {
-        // Arra String arr[] = {};
-        ArrayList<String> arr = new ArrayList<>();
-        stringConvert("925", 0, arr);
+        stringConvert("925", 0);
     }
-}  
+}
