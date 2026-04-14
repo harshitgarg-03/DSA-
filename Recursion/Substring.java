@@ -1,6 +1,7 @@
 import java.util.*;
-public class Substring {
-public static void main(String args[]) {
 
-}
+public class Substring {
+    public static void main(String args[]) {
+
+    }
 }
