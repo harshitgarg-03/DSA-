@@ -4,6 +4,7 @@ public class MergeSort {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
+        System.out.println();
     }
 
     public static void MergeArr(int arr[], int si, int ei) {
@@ -22,7 +23,7 @@ public class MergeSort {
         int i = si;
         int j = mid + 1;
 
-        while (i < j && j <= ei) {
+        while (i <= mid && j <= ei) {
             if (arr[i] < arr[j]) {
                 temp[k] = arr[i];
                 i++;
@@ -33,7 +34,7 @@ public class MergeSort {
             k++;
         }
 
-        while (i < j) {
+        while (i <= mid) {
             temp[k++] = arr[i++];
         }
         while (j <= ei) {
@@ -43,11 +44,11 @@ public class MergeSort {
         for (i = si, k = 0; k < temp.length; k++, i++) {
             arr[i] = temp[k];
         }
-        PrintArr(arr);
     }
-
+    
     public static void main(String args[]) {
         int arr[] = { 9, 3, 5, 6, 8, 1 };
         MergeArr(arr, 0, arr.length - 1);
+        PrintArr(arr);
     }
 }
