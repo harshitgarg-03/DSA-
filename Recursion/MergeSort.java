@@ -44,11 +44,12 @@ public class MergeSort {
         for (i = si, k = 0; k < temp.length; k++, i++) {
             arr[i] = temp[k];
         }
+        // PrintArr(arr);
     }
     
     public static void main(String args[]) {
         int arr[] = { 9, 3, 5, 6, 8, 1 };
         MergeArr(arr, 0, arr.length - 1);
-        PrintArr(arr);
+        // PrintArr(arr);
     }
 }
