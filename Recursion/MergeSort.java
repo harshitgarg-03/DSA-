@@ -7,6 +7,7 @@ public class MergeSort {
         System.out.println();
     }
 
+    // Dividing the array elements
     public static void MergeArr(int arr[], int si, int ei) {
         if (si >= ei) {
             return;
@@ -44,12 +45,12 @@ public class MergeSort {
         for (i = si, k = 0; k < temp.length; k++, i++) {
             arr[i] = temp[k];
         }
-        // PrintArr(arr);
     }
     
+    // merging the arrray elements
     public static void main(String args[]) {
         int arr[] = { 9, 3, 5, 6, 8, 1 };
         MergeArr(arr, 0, arr.length - 1);
-        // PrintArr(arr);
+        PrintArr(arr);
     }
 }
