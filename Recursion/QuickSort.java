@@ -15,7 +15,7 @@ public class QuickSort {
     }
 
     public static void QuikcArr(int arr[], int i, int j, int pv) {
-        if (i > arr.length) {
+        if (i == arr.length) {
             return;
         }
         if (arr[i] <= pv) {
