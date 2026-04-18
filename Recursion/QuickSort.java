@@ -28,6 +28,7 @@ public class QuickSort {
         int newpvidx = QuikcArr(arr, i + 1, j, pv, pvidx);
         return newpvidx;
     }
+    
     public static void mergeArray(int low, int high, int arr[]) {
         if(low < high){
             int pivot = arr[high];
