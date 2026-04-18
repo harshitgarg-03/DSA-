@@ -14,20 +14,30 @@ public class QuickSort {
         return;
     }
 
-    public static void QuikcArr(int arr[], int i, int j, int pv) {
+    public static int QuikcArr(int arr[], int i, int j, int pv, int pvidx) {
         if (i == arr.length) {
-            return;
+            return pvidx;
         }
         if (arr[i] <= pv) {
             ++j;
+            if (arr[i] == pv) {
+                pvidx = j;
+            }
             SwapFun(arr, i, j);
         }
-        QuikcArr(arr, i+1, j, pv);
+        int newpvidx = QuikcArr(arr, i + 1, j, pv, pvidx);
+        return newpvidx;
+    }
+    public static void mergeArray(int low, int high, int arr[]) {
+        if(low < high){
+            int pivot = arr[high];
+            QuikcArr(arr, pivot, low, high, pivot);
+        }
     }
 
     public static void main(String args[]) {
         int arr[] = { 6, 3, 9, 8, 2, 5 };
-        QuikcArr(arr, 0, -1, arr[arr.length-1]);
+        mergeArray(0, arr.length, arr);
         PrintArr(arr);
     }
 }
