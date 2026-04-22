@@ -2,7 +2,7 @@ import java.util.*;
 
 public class MergeSort {
 
-    public static void divide(int arr[], int si, int ei) {
+    public static void divide(String arr[], int si, int ei) {
         if (si >= ei) return;
 
         int mid = si + (ei - si) / 2;
@@ -13,8 +13,8 @@ public class MergeSort {
         merge(arr, si, mid, ei);
     }
 
-    public static void merge(int arr[], int si, int mid, int ei) {
-        int temp[] = new int[ei - si + 1];
+    public static void merge(String arr[], int si, int mid, int ei) {
+        String temp[] = new String[ei - si + 1];
 
         int left = si;      
         int right = mid + 1; 
@@ -22,7 +22,7 @@ public class MergeSort {
 
       
         while (left <= mid && right <= ei) {
-            if (arr[left] <= arr[right]) {
+            if (arr[left].compareTo(arr[right]) <= 0) {
                 temp[k++] = arr[left++];
             } else {
                 temp[k++] = arr[right++];
@@ -44,12 +44,12 @@ public class MergeSort {
     }
 
     public static void main(String args[]) {
-        int arr[] = {4, 5, 1, 9, 2, 3};
+        String arr[] = {"sun", "earth", "mars", "mercury"};
 
         divide(arr, 0, arr.length - 1);
 
         System.out.println("Sorted Array:");
-        for (int num : arr) {
+        for (String num : arr) {
             System.out.print(num + " ");
         }
     }
