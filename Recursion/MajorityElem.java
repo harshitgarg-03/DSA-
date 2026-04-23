@@ -16,7 +16,7 @@ public class MajorityElem {
         }
         Major(arr, fix, i+1, count);
     }
-       
+        
     public static void main(String args[]) {
         int arr[] = { 2, 2, 1, 1, 1, 2, 2, 2 };
         Major(arr, arr[0], 1, 1);
