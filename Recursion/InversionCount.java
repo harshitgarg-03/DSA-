@@ -17,7 +17,7 @@ public class InversionCount {
 
     }
     public static void main(String args[]) {
-        int arr[] = {5, 5, 5};
+        int arr[] = {4, 1, 3, 9, 0, 2, 5};
         int nums[] = arr.clone();
         Arrays.sort(nums);
 
