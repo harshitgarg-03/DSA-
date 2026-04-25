@@ -1,6 +1,7 @@
 import java.util.*;
-public class InversionCount {
-public static void main(String args[]) {
 
-}
+public class InversionCount {
+    public static void main(String args[]) {
+
+    }
 }
