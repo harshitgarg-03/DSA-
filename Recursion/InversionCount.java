@@ -5,7 +5,7 @@ public class InversionCount {
         if(i > ei-1){
             System.out.println("count is " + count);
             return;
-        }
+        } 
 
         for(int k = ei-1; k > i; k--){
             if(arr[i] > arr[k]) {
