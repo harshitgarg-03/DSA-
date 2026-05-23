@@ -14,6 +14,8 @@ public class ContainWithMostWater {
 
         for(int i = 0; i <= mid; i++){
             if(leftSum < (i+height[i])){
+
+                if((leftHt >= height[i]) && leftIdx < i) continue;
                 leftSum = i+height[i];
                 leftIdx = i;
                 leftHt = height[i];
@@ -35,7 +37,7 @@ public class ContainWithMostWater {
 
     }
     public static void main(String args[]) {
-        int height[] = {3, 1, 2, 4, 5};
+        int height[] = {1,1};
         maxwater(height);
     }
 }
