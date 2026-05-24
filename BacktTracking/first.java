@@ -8,7 +8,7 @@ public class first {
         System.out.println(arr[i]);
         Backtrackfunc(arr, i+1);
         arr[i] = arr[i] - 2;
-        System.out.print(arr[i] + " ");
+        System.out.print(arr[i] + " "); 
     }
     public static void main(String args[]) {
         int arr[] = new int[5];
