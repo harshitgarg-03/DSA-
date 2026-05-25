@@ -2,7 +2,7 @@ public class nQ {
     public static void printChessBoard(char chessBoard[][]) {
         for (int i = 0; i < chessBoard.length; i++) {
             for (int j = 0; j < chessBoard.length; j++) {
-                System.out.println(chessBoard[i][j] + " ");
+                System.out.print(chessBoard[i][j] + " ");
 
             }
             System.out.println("");
