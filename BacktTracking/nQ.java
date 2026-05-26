@@ -19,44 +19,59 @@ public class nQ {
         }
 
         // horizontal
-        for (int i = 0; i < chessBoard.length; i++) {
-            if (chessBoard[row][i] == 'Q') {
-                return false;
-            }
-        }
+        // for (int i = 0; i < chessBoard.length; i++) {
+        //     if (chessBoard[row][i] == 'Q') {
+        //         return false;
+        //     }
+        // }
 
-        // Diagonal UP
+        // Diagonal left UP
         for (int i = row, j = col; i >= 0 && j >= 0; i--, j--) {
             if (chessBoard[i][j] == 'Q') {
                 return false;
             }
         }
 
-        // Diagonal Down
-        for (int i = row, j = col; i < chessBoard.length && j < chessBoard.length; i++, j++) {
+        // Diagonal right UP
+        for (int i = row, j = col; i >= 0 && j < chessBoard.length; i--, j++) {
             if (chessBoard[i][j] == 'Q') {
                 return false;
             }
         }
+        // Diagonal right Down
+        // for (int i = row, j = col; i < chessBoard.length && j < chessBoard.length; i++, j++) {
+        //     if (chessBoard[i][j] == 'Q') {
+        //         return false;
+        //     }
+        // }
+
+        // Diagonal left Down
+        // for (int i = row, j = col; i < chessBoard.length && j >= 0; i++, j--) {
+        //     if (chessBoard[i][j] == 'Q') {
+        //         return false;
+        //     }
+        // }
 
         return true;
     }
 
     public static void placedQueens(char chessBoard[][], int row) {
         if (row == chessBoard.length) {
+            printChessBoard(chessBoard);
             return;
         }
 
         for (int i = 0; i < chessBoard.length; i++) {
-            chessBoard[row][i] = 'Q';
-            printChessBoard(chessBoard);
-            chessBoard[row][i] = 'X';
+            if (isSafe(chessBoard, row, i)) {
+                chessBoard[row][i] = 'Q';
+                placedQueens(chessBoard, row + 1);
+                chessBoard[row][i] = 'X';
+            }
         }
-        placedQueens(chessBoard, row + 1);
     }
 
     public static void main(String args[]) {
-        int n = 3;
+        int n = 4;
         char chessBoard[][] = new char[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
