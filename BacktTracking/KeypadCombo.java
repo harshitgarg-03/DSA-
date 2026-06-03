@@ -17,7 +17,7 @@ public class KeypadCombo {
     }
 
     public static void main(String args[]) {
-        String digits = "23";
+        String digits = "234";
         String ans = "";
         int idx = 0;
         String[] mapping = {
