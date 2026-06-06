@@ -1,79 +1,43 @@
 public class Knight {
 
-    public static void SolveKnight(int grid[][], int i, int j, int count) {
-        if (count == grid.length * grid.length) {
-            System.out.println("True");
-            return;
-        }
+    public static boolean solve(int[][] grid, int i, int j, int count) {
+
         int n = grid.length;
-        // Checking Availability
 
-        // Upper Conditions
-
-        i = i-2; 
-        j = j+1;
-        if(i >= 0 && j < n && grid[i][j] == count){
-            SolveKnight(grid, i, j, count+1);
+        if (count == n * n) {
+            return true;
         }
 
-        j = j-1;
-        if(j >= 0 && grid[i][j] == count){
-            SolveKnight(grid, i, j, count+1);
+        int[] dx = { -2, -2, 2, 2, -1, 1, -1, 1 };
+        int[] dy = { 1, -1, 1, -1, -2, -2, 2, 2 };
+
+        for (int k = 0; k < 8; k++) {
+
+            int ni = i + dx[k];
+            int nj = j + dy[k];
+
+            if (ni >= 0 && ni < n &&
+                    nj >= 0 && nj < n &&
+                    grid[ni][nj] == count) {
+
+                if (solve(grid, ni, nj, count + 1))
+                    return true;
+            }
         }
 
-        // Down
-
-        i = i+2; 
-        j = j+1;
-        if(i < n && j < n && grid[i][j] == count){
-            SolveKnight(grid, i, j, count+1);
-        }
-
-        j = j-1;
-        if(j >= 0 && grid[i][j] == count){
-            SolveKnight(grid, i, j, count+1);
-        }
-
-        // Left
-        i = i+1; 
-        j = j-2;
-        if(i < n && j >= 0 && grid[i][j] == count){
-            SolveKnight(grid, i, j, count+1);
-        }
-
-        i = i-1; 
-        if(i >= 0 && grid[i][j] == count){
-            SolveKnight(grid, i, j, count+1);
-        }
-
-        // Right
-
-        i = i-1; 
-        j = j+2;
-        if(j < n && i >= 0 && grid[i][j] == count){
-            SolveKnight(grid, i, j, count+1);
-        }
-        i = i+1; 
-        if(i > n && grid[i][j] == count){
-            SolveKnight(grid, i, j, count+1);
-        }
-
-        else{
-            System.out.println("False ");
-            return;
-        }
+        return false;
     }
 
     public static void main(String args[]) {
         int grid[][] = { { 0, 11, 16, 5, 20 }, { 17, 4, 19, 10, 15 }, { 12, 1, 8, 21, 6 }, { 3, 18, 23, 14, 9 },
                 { 24, 13, 2, 7, 22 } };
-        
-        if(grid[0][0] != 0) {
-            System.out.println("false ");
+
+        if (grid[0][0] != 0) {
+            System.out.println(false);
             return;
         }
-        int count = 1;
-        SolveKnight(grid, 0, 0, count);
+
+        System.out.println(solve(grid, 0, 0, 1));
     }
 
 }
