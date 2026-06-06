@@ -5,59 +5,56 @@ public class Knight {
             System.out.println("True");
             return;
         }
-
+        int n = grid.length;
         // Checking Availability
 
         // Upper Conditions
 
-        if(grid[i-2][j+1] == count){
-            i = i-2; 
-            j = j+1;
+        i = i-2; 
+        j = j+1;
+        if(i >= 0 && j < n && grid[i][j] == count){
             SolveKnight(grid, i, j, count+1);
         }
 
-        if(grid[i-2][j-1] == count){
-            i = i-2; 
-            j = j-1;
+        j = j-1;
+        if(j >= 0 && grid[i][j] == count){
             SolveKnight(grid, i, j, count+1);
         }
 
         // Down
 
-        if(grid[i+2][j+1] == count){
-            i = i+2; 
-            j = j+1;
+        i = i+2; 
+        j = j+1;
+        if(i < n && j < n && grid[i][j] == count){
             SolveKnight(grid, i, j, count+1);
         }
 
-        if(grid[i+2][j-1] == count){
-            i = i+2; 
-            j = j-1;
+        j = j-1;
+        if(j >= 0 && grid[i][j] == count){
             SolveKnight(grid, i, j, count+1);
         }
 
         // Left
-        if(grid[i+1][j-2] == count){
-            i = i+1; 
-            j = j-2;
+        i = i+1; 
+        j = j-2;
+        if(i < n && j >= 0 && grid[i][j] == count){
             SolveKnight(grid, i, j, count+1);
         }
-        if(grid[i-1][j-2] == count){
-            i = i-1; 
-            j = j-2;
+
+        i = i-1; 
+        if(i >= 0 && grid[i][j] == count){
             SolveKnight(grid, i, j, count+1);
         }
 
         // Right
 
-        if(grid[i-1][j+2] == count){
-            i = i-1; 
-            j = j+2;
+        i = i-1; 
+        j = j+2;
+        if(j < n && i >= 0 && grid[i][j] == count){
             SolveKnight(grid, i, j, count+1);
         }
-        if(grid[i+1][j+2] == count){
-            i = i+1; 
-            j = j+2;
+        i = i+1; 
+        if(i > n && grid[i][j] == count){
             SolveKnight(grid, i, j, count+1);
         }
 
