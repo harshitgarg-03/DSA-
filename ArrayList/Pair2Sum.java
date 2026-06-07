@@ -16,7 +16,7 @@ public class Pair2Sum {
         // System.out.println(lp + " " + rp);
 
         while(lp != rp){
-            rp = ((n+1+rp) % n);
+            rp = ((n+rp) % n);
             lp = (lp % n);
             if(nums[lp] + nums[rp] == target){
                 System.out.println("pair is ( " + nums[lp] + ", " + nums[rp] + ") ");
@@ -24,11 +24,14 @@ public class Pair2Sum {
             }
 
             if(nums[lp] + nums[rp] > target){
-                rp--;
+                lp--;
             }
             else{
-                lp++;
+                rp++;
             }
+
+            rp = ((n+rp) % n);
+            lp = (lp % n);
         }
     }
 }
