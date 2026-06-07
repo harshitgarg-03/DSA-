@@ -16,15 +16,18 @@ public class Pair2Sum {
         // System.out.println(lp + " " + rp);
 
         while(lp != rp){
-            rp = ((n+rp) % n);
-            lp = (lp % n);
+            // rp = ((n+rp) % n);
+            // lp = (lp % n);
             if(nums[lp] + nums[rp] == target){
-                System.out.println("pair is ( " + nums[lp] + ", " + nums[rp] + ") ");
+                System.out.println("pair is ( " + nums[lp] + ", " + nums[rp] + " ) ");
                 return;
             }
 
-            if(nums[lp] + nums[rp] > target){
+            else if(nums[lp] + nums[rp] > target){
                 lp--;
+                if(lp < 0){
+                    lp = n-1;
+                }
             }
             else{
                 rp++;
