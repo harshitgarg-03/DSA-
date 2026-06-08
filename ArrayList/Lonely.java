@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Lonely {
     public static void main(String[] args) {
-        int nums[] = {10,6,5,8};
+        int nums[] = { 10, 6, 5, 8 };
 
         ArrayList<Integer> list = new ArrayList<>();
         ArrayList<Integer> result = new ArrayList<>();
@@ -24,8 +25,10 @@ public class Lonely {
         }
 
         // System.out.println("helloo ");
+        HashSet<Integer> set = new HashSet<>(list);
+
         for (int num : nums) {
-            if (!list.contains(num)) {
+            if (!set.contains(num)) {
                 result.add(num);
             }
         }
