@@ -10,10 +10,11 @@ public class CountIvr {
             if(rptr <= lptr){
                 rptr = n-1;
                 lptr++;
+                continue;
             }
 
             else if((lptr < rptr) && (nums[lptr] > nums[rptr])){
-                System.out.println(nums[lptr] + "," + nums[rptr]);
+                // System.out.println(nums[lptr] + "," + nums[rptr]);
                 count++;
             }
 
