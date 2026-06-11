@@ -22,8 +22,8 @@ public class Combination {
     }
 
     public static void main(String[] args) {
-        int arr[] = { 2, 3, 6, 7 };
-        int target = 7;
+        int arr[] = { 2};
+        int target = 1;
         ArrayList<Integer> list = new ArrayList<>();
 
         Arrays.sort(arr);
