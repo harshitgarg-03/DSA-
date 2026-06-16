@@ -16,4 +16,4 @@ public class PallindromePartioning {
     public static void main(String args[]) {
     solve("aab", 0, "");
     }
-}
+} 
