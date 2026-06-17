@@ -62,6 +62,11 @@ public class Linkedlist {
 
     }
 
+    public static void removeFirst() {
+        head = head.next;
+        return;
+    }
+
     public static void PrintLinkedList() {
         if (head == null) {
             System.out.println();
