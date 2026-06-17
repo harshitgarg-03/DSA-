@@ -38,22 +38,22 @@ public class Linkedlist {
         tail = newNode;
     }
 
-    public static void AddMiddle(int idx , int data){
+    public static void AddMiddle(int idx, int data) {
 
-        if(idx == 0){
+        if (idx == 0) {
             addFirst(data);
             return;
         }
         Node newNode = new Node(data);
         size++;
-        if(head == null){
+        if (head == null) {
             head = tail = newNode;
             return;
         }
-        
+
         temp = head;
-        
-        for(int i = 0; i < idx-1; i++){
+
+        for (int i = 0; i < idx - 1; i++) {
             temp = temp.next;
         }
 
@@ -63,8 +63,34 @@ public class Linkedlist {
     }
 
     public static void removeFirst() {
+        if (size == 0) {
+            System.out.println("LL is empty");
+            return;
+        } else if (size == 1) {
+            head = tail = null;
+            size = 0;
+        }
         head = head.next;
+        size--;
         return;
+    }
+
+    public static void removeLast() {
+        if (size == 0) {
+            System.out.println("LL is empty");
+            return;
+        } else if (size == 1) {
+            head = tail = null;
+            size = 0;
+        }
+        temp = head;
+        for (int i = 0; i < size - 2; i++) {
+            temp = temp.next;
+        }
+
+        temp.next = null;
+        tail = temp;
+        size--;
     }
 
     public static void PrintLinkedList() {
@@ -87,9 +113,10 @@ public class Linkedlist {
         addFirst(1);
         addLast(3);
         addLast(4);
-        
+
         AddMiddle(2, 9);
+        removeFirst();
         PrintLinkedList();
-        System.out.println("size is :: "+ size);
+        System.out.println("size is :: " + size);
     }
 }
