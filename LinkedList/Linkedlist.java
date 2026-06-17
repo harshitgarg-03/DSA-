@@ -1,0 +1,90 @@
+
+public class Linkedlist {
+
+    public static class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public static Node head;
+    public static Node tail;
+    public static Node temp;
+    public static int size;
+
+    public static void addFirst(int data) {
+        Node newNode = new Node(data);
+        size++;
+        if (head == null) {
+            head = tail = newNode;
+            return;
+        }
+
+        newNode.next = head;
+        head = newNode;
+    }
+
+    public static void addLast(int data) {
+        Node newNode = new Node(data);
+        size++;
+        if (head == null) {
+            head = tail = newNode;
+        }
+        tail.next = newNode;
+        tail = newNode;
+    }
+
+    public static void AddMiddle(int idx , int data){
+
+        if(idx == 0){
+            addFirst(data);
+            return;
+        }
+        Node newNode = new Node(data);
+        size++;
+        if(head == null){
+            head = tail = newNode;
+            return;
+        }
+        
+        temp = head;
+        
+        for(int i = 0; i < idx-1; i++){
+            temp = temp.next;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+
+    }
+
+    public static void PrintLinkedList() {
+        if (head == null) {
+            System.out.println();
+        }
+        temp = head;
+
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String args[]) {
+        Linkedlist ll = new Linkedlist();
+
+        addFirst(2);
+        addFirst(1);
+        addLast(3);
+        addLast(4);
+        
+        AddMiddle(2, 9);
+        PrintLinkedList();
+        System.out.println("size is :: "+ size);
+    }
+}
