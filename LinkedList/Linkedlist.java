@@ -141,6 +141,22 @@ public class Linkedlist {
         solve(null, head);
     }
 
+    public static void delNnodeEnd(int size, int n) {
+
+        if(size == n){
+            head = head.next;
+            return;
+        }
+        int j = size - n;
+        temp = head;
+
+        for (int i = 0; i < j-1; i++) {
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+        System.out.println("temp " + temp.data);
+    }
+
     public static void PrintLinkedList() {
         if (head == null) {
             System.out.println();
@@ -163,11 +179,13 @@ public class Linkedlist {
         addLast(4);
 
         AddMiddle(2, 9);
-        removeFirst();
-        removeLast();
+        // removeFirst();
+        // removeLast();
         PrintLinkedList();
         System.out.println("size is :: " + size);
         recSearch(10);
-        reverse();
+        // reverse();
+        delNnodeEnd(size, 5);
+        PrintLinkedList();
     }
 }
