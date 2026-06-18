@@ -116,6 +116,31 @@ public class Linkedlist {
         helperFnx(head, key, 0);
     }
 
+    public static void solve(Node prev, Node curr) {
+
+        if (curr == null) {
+            head = prev;
+            return;
+        }
+
+        Node succ = curr.next;
+
+        curr.next = prev;
+
+        solve(curr, succ);
+    }
+
+    public static void reverse() {
+
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        tail = head;
+
+        solve(null, head);
+    }
+
     public static void PrintLinkedList() {
         if (head == null) {
             System.out.println();
@@ -143,5 +168,6 @@ public class Linkedlist {
         PrintLinkedList();
         System.out.println("size is :: " + size);
         recSearch(10);
+        reverse();
     }
 }
