@@ -130,7 +130,7 @@ public class Linkedlist {
         solve(curr, succ);
     }
 
-    public static void reverse() {
+    public static void reverse(Node head) {
 
         if (head == null || head.next == null) {
             return;
@@ -169,6 +169,35 @@ public class Linkedlist {
         return slow; // midnode 
     }
 
+    public static boolean pallindrome() {
+        Node midNOde = MidNode(head); // find midNode
+
+        // reverse half Linkedlist
+
+        Node prev = null;
+        Node curr = midNOde;
+        Node succ;
+        while(curr != null){
+            succ = curr.next;
+            curr.next = prev;
+
+            prev = curr;
+            curr = succ;
+        }
+
+        Node right = prev;
+        Node left = head;
+
+        while (right != null) { 
+            if(left.data != right.data){
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+
+         return true;
+    }
     public static void PrintLinkedList() {
         if (head == null) {
             System.out.println();
@@ -185,22 +214,20 @@ public class Linkedlist {
     public static void main(String args[]) {
         Linkedlist ll = new Linkedlist();
 
-        addFirst(2);
         addFirst(1);
-        addLast(3);
-        addLast(4);
+        addFirst(2);
+        addLast(2);
+        // addLast(1);
 
-        AddMiddle(2, 9);
+        // AddMiddle(2, 9);
         // removeFirst();
         // removeLast();
         PrintLinkedList();
         System.out.println("size is :: " + size);
         // recSearch(10);
-        // reverse();
+        // reverse(head);
         // delNnodeEnd(size, 5);
         // PrintLinkedList();
-
-        Node newNode = MidNode(head);
-        System.out.println("newNode is "+ newNode.data);
+        System.out.println(pallindrome());
     }
 }
