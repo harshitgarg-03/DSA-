@@ -93,6 +93,29 @@ public class Linkedlist {
         size--;
     }
 
+    public static void helperFnx(Node head, int key, int idx) {
+        if (head == null) {
+            System.out.println("key not found ");
+            return;
+        }
+        if (head.data == key) {
+            System.out.println("key found at idx " + idx);
+            return;
+        }
+        head = head.next;
+        idx = idx + 1;
+        helperFnx(head, key, idx);
+    }
+
+    public static void recSearch(int key) {
+        if (head == null) {
+            System.out.println("Linkedlist is empty .!");
+            return;
+        }
+
+        helperFnx(head, key, 0);
+    }
+
     public static void PrintLinkedList() {
         if (head == null) {
             System.out.println();
@@ -116,7 +139,9 @@ public class Linkedlist {
 
         AddMiddle(2, 9);
         removeFirst();
+        removeLast();
         PrintLinkedList();
         System.out.println("size is :: " + size);
+        recSearch(10);
     }
 }
