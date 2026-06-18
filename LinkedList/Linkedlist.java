@@ -143,18 +143,30 @@ public class Linkedlist {
 
     public static void delNnodeEnd(int size, int n) {
 
-        if(size == n){
+        if (size == n) {
             head = head.next;
             return;
         }
         int j = size - n;
         temp = head;
 
-        for (int i = 0; i < j-1; i++) {
+        for (int i = 0; i < j - 1; i++) {
             temp = temp.next;
         }
         temp.next = temp.next.next;
         System.out.println("temp " + temp.data);
+    }
+
+    public static Node MidNode(Node head){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next; // +1
+            fast = fast.next.next; // +2
+        }
+
+        return slow; // midnode 
     }
 
     public static void PrintLinkedList() {
@@ -183,9 +195,12 @@ public class Linkedlist {
         // removeLast();
         PrintLinkedList();
         System.out.println("size is :: " + size);
-        recSearch(10);
+        // recSearch(10);
         // reverse();
-        delNnodeEnd(size, 5);
-        PrintLinkedList();
+        // delNnodeEnd(size, 5);
+        // PrintLinkedList();
+
+        Node newNode = MidNode(head);
+        System.out.println("newNode is "+ newNode.data);
     }
 }
