@@ -36,7 +36,7 @@ public class Linkedlist {
         }
         tail.next = newNode;
         tail = newNode;
-        newNode.next = head.next.next.next;
+        // newNode.next = head.next.next.next;
     }
 
     public static void AddMiddle(int idx, int data) {
@@ -214,41 +214,105 @@ public class Linkedlist {
         return false;
     }
 
-    public static void removeCyclewithSize (){
-        // with the help of size 
+    public static void removeCyclewithSize() {
+        // with the help of size
         temp = head;
-        for (int i = 1; i < size; i++ ){
+        for (int i = 1; i < size; i++) {
             temp = temp.next;
         }
         System.out.println("last node is " + temp.data);
         temp.next = null;
-        
+
     }
 
     public static void removeCycle() {
         Node slow = head;
         Node fast = head;
 
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
 
-            if(slow == fast){
+            if (slow == fast) {
                 System.err.println("Loop is detected ");
                 slow = head;
                 Node prev = null;
-                while (slow != fast){
+                while (slow != fast) {
                     prev = fast;
                     slow = slow.next;
                     fast = fast.next;
                 }
 
-                System.out.println("last node is "+ prev.data);
+                System.out.println("last node is " + prev.data);
                 prev.next = null;
 
             }
         }
     }
+
+    public static Node getMid(Node head) {
+        Node slow = head;
+        Node fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next; // +1
+            fast = fast.next.next; // +2
+        }
+        System.out.println("mid is :: " + slow.data);
+        return slow;
+    }
+
+    public static Node merge(Node head1, Node head2) {
+
+        Node dummy = new Node(-1);
+        Node temp = dummy;
+
+        while (head1 != null && head2 != null) {
+
+            if (head1.data <= head2.data) {
+                temp.next = head1;
+                head1 = head1.next;
+            } else {
+                temp.next = head2;
+                head2 = head2.next;
+            }
+
+            temp = temp.next;
+        }
+
+        while (head1 != null) {
+            temp.next = head1;
+            head1 = head1.next;
+            temp = temp.next;
+        }
+
+        while (head2 != null) {
+            temp.next = head2;
+            head2 = head2.next;
+            temp = temp.next;
+        }
+
+        return dummy.next;
+    }
+
+    public static Node Mergesort(Node head) {
+
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        Node mid = getMid(head); // get mid mode
+
+        Node rightHead = mid.next;
+        mid.next = null; // break link
+
+        Node newLeft = Mergesort(head);
+        Node newRight = Mergesort(rightHead);
+
+        return merge(newLeft, newRight);
+
+    }
+
     public static void PrintLinkedList() {
         if (head == null) {
             System.out.println();
@@ -267,13 +331,13 @@ public class Linkedlist {
 
         addFirst(8);
         addFirst(7);
-        addFirst(6);
-        addFirst(5);
-        addFirst(4);
+        addFirst(9);
+        addFirst(1);
+        addFirst(8);
         addFirst(3);
         addFirst(2);
-        addFirst(1);
-        addLast(9);
+        addFirst(0);
+        addLast(12);
         // addLast(1);
 
         // AddMiddle(2, 9);
@@ -289,9 +353,11 @@ public class Linkedlist {
         // System.out.println(tail.next.data);
         // System.out.println(DetectLoop(head));
         // removeCyclewithSize();
-        System.out.println(DetectLoop(head));
-        removeCycle();
-        System.out.println(DetectLoop(head));
-        // PrintLinkedList();
+        // System.out.println(DetectLoop(head));
+        // removeCycle();
+        // System.out.println(DetectLoop(head));
+        PrintLinkedList();
+        System.out.println("sorted ll is :: " + Mergesort(head));
+        PrintLinkedList();
     }
 }
