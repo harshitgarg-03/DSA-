@@ -36,6 +36,7 @@ public class Linkedlist {
         }
         tail.next = newNode;
         tail = newNode;
+        newNode.next = head.next.next.next;
     }
 
     public static void AddMiddle(int idx, int data) {
@@ -157,16 +158,16 @@ public class Linkedlist {
         System.out.println("temp " + temp.data);
     }
 
-    public static Node MidNode(Node head){
+    public static Node MidNode(Node head) {
         Node slow = head;
         Node fast = head;
 
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next; // +1
             fast = fast.next.next; // +2
         }
 
-        return slow; // midnode 
+        return slow; // midnode
     }
 
     public static boolean pallindrome() {
@@ -177,27 +178,45 @@ public class Linkedlist {
         Node prev = null;
         Node curr = midNOde;
         Node succ;
-        while(curr != null){
+        while (curr != null) {
             succ = curr.next;
             curr.next = prev;
 
             prev = curr;
             curr = succ;
         }
-        // now check the right and the left half 
+        // now check the right and the left half
         Node right = prev;
         Node left = head;
 
-        while (right != null) { 
-            if(left.data != right.data){
+        while (right != null) {
+            if (left.data != right.data) {
                 return false;
             }
             left = left.next;
             right = right.next;
         }
 
-         return true;
+        return true;
     }
+
+    public static boolean DetectLoop(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        slow = slow.next;
+        fast = fast.next.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void PrintLinkedList() {
         if (head == null) {
             System.out.println();
@@ -214,20 +233,28 @@ public class Linkedlist {
     public static void main(String args[]) {
         Linkedlist ll = new Linkedlist();
 
-        addFirst(1);
+        addFirst(8);
+        addFirst(7);
+        addFirst(6);
+        addFirst(5);
+        addFirst(4);
+        addFirst(3);
         addFirst(2);
-        addLast(2);
+        addFirst(1);
+        addLast(9);
         // addLast(1);
 
         // AddMiddle(2, 9);
         // removeFirst();
         // removeLast();
-        PrintLinkedList();
+        // PrintLinkedList();
         System.out.println("size is :: " + size);
         // recSearch(10);
         // reverse(head);
         // delNnodeEnd(size, 5);
         // PrintLinkedList();
-        System.out.println(pallindrome());
+        // System.out.println(pallindrome());
+        // System.out.println(tail.next.data);
+        System.out.println(DetectLoop(head));
     }
 }
