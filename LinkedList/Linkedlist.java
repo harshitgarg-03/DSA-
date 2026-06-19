@@ -235,8 +235,17 @@ public class Linkedlist {
 
             if(slow == fast){
                 System.err.println("Loop is detected ");
+                slow = head;
+                Node prev = null;
+                while (slow != fast){
+                    prev = fast;
+                    slow = slow.next;
+                    fast = fast.next;
+                }
 
-                
+                System.out.println("last node is "+ prev.data);
+                prev.next = null;
+
             }
         }
     }
@@ -279,7 +288,8 @@ public class Linkedlist {
         // System.out.println(pallindrome());
         // System.out.println(tail.next.data);
         // System.out.println(DetectLoop(head));
-        removeCyclewithSize();
+        // removeCyclewithSize();
+        removeCycle();
         PrintLinkedList();
     }
 }
