@@ -184,7 +184,7 @@ public class Linkedlist {
             prev = curr;
             curr = succ;
         }
-
+        // now check the right and the left half 
         Node right = prev;
         Node left = head;
 
