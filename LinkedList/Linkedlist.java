@@ -289,7 +289,9 @@ public class Linkedlist {
         // System.out.println(tail.next.data);
         // System.out.println(DetectLoop(head));
         // removeCyclewithSize();
+        System.out.println(DetectLoop(head));
         removeCycle();
-        PrintLinkedList();
+        System.out.println(DetectLoop(head));
+        // PrintLinkedList();
     }
 }
