@@ -204,9 +204,6 @@ public class Linkedlist {
         Node slow = head;
         Node fast = head;
 
-        slow = slow.next;
-        fast = fast.next.next;
-
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -217,6 +214,32 @@ public class Linkedlist {
         return false;
     }
 
+    public static void removeCyclewithSize (){
+        // with the help of size 
+        temp = head;
+        for (int i = 1; i < size; i++ ){
+            temp = temp.next;
+        }
+        System.out.println("last node is " + temp.data);
+        temp.next = null;
+        
+    }
+
+    public static void removeCycle() {
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                System.err.println("Loop is detected ");
+
+                
+            }
+        }
+    }
     public static void PrintLinkedList() {
         if (head == null) {
             System.out.println();
@@ -255,6 +278,8 @@ public class Linkedlist {
         // PrintLinkedList();
         // System.out.println(pallindrome());
         // System.out.println(tail.next.data);
-        System.out.println(DetectLoop(head));
+        // System.out.println(DetectLoop(head));
+        removeCyclewithSize();
+        PrintLinkedList();
     }
 }
