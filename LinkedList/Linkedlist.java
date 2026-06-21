@@ -313,6 +313,46 @@ public class Linkedlist {
 
     }
 
+    public static void ZigZag(Node head) {
+        // get mid node
+        Node slow = head;
+        Node fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next; // +1
+            fast = fast.next.next; // +2
+        }
+        System.out.println("mid is :: " + slow.data);
+
+        // rever half ll
+        Node curr = slow.next;
+        slow.next = null;
+        Node prev = null;
+        Node succ = null;
+
+        while (curr != null) {
+            succ = curr.next;
+            curr.next = prev;
+
+            prev = curr;
+            curr = succ;
+        }
+
+        // linking node
+        Node Right = prev;
+        Node left = head;
+
+        while (left != null && Right != null) {
+
+            Node currNode = left.next;
+            Node RightNode = Right.next;
+            left.next = Right;
+            left.next.next = currNode;
+            left = currNode;
+            Right = RightNode;
+        }
+    }
+
     public static void PrintLinkedList() {
         if (head == null) {
             System.out.println();
@@ -329,15 +369,15 @@ public class Linkedlist {
     public static void main(String args[]) {
         Linkedlist ll = new Linkedlist();
 
-        addFirst(8);
-        addFirst(7);
-        addFirst(9);
-        addFirst(1);
-        addFirst(8);
+        addFirst(5);
+        addFirst(4);
         addFirst(3);
         addFirst(2);
-        addFirst(0);
-        addLast(12);
+        addFirst(1);
+        // addFirst(3);
+        // addFirst(2);
+        // addFirst(0);
+        // addLast(12);
         // addLast(1);
 
         // AddMiddle(2, 9);
@@ -357,7 +397,8 @@ public class Linkedlist {
         // removeCycle();
         // System.out.println(DetectLoop(head));
         PrintLinkedList();
-        System.out.println("sorted ll is :: " + Mergesort(head));
+        // System.out.println("sorted ll is :: " + Mergesort(head));
+        ZigZag(head);
         PrintLinkedList();
     }
 }
