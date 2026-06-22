@@ -1,4 +1,8 @@
 
+import java.util.LinkedList;
+
+
+
 public class Linkedlist {
 
     public static class Node {
@@ -378,6 +382,30 @@ public class Linkedlist {
         }
     }
 
+    public static void ODDorEVEN(Node head){
+        LinkedList<Integer> list = new LinkedList<>();
+
+        Node temp = head;
+
+        while (temp != null) {
+            if(temp.data % 2 == 0){
+                list.add(temp.data);
+            }
+            temp = temp.next;
+        }
+
+        temp = head;
+        while(temp != null){
+            if(temp.data % 2 != 0){
+                list.add(temp.data);
+            }
+            temp = temp.next;
+        }
+
+        System.out.println(list);
+
+    }
+
     public static void PrintLinkedList() {
         if (head == null) {
             System.out.println();
@@ -426,7 +454,8 @@ public class Linkedlist {
         // System.out.println("sorted ll is :: " + Mergesort(head));
         // ZigZag(head);
         // PrintLinkedList();
-        DeleteNnode(3, 2);
-        PrintLinkedList();
+        // DeleteNnode(3, 2);
+        ODDorEVEN(head);
+        // PrintLinkedList();
     }
 }
