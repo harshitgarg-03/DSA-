@@ -353,6 +353,31 @@ public class Linkedlist {
         }
     }
 
+    public static void DeleteNnode(int m, int n){
+        int cn = 0;
+        int cm = 0;
+        Node prev = null;
+        Node temp = head;
+        while(temp != null){
+            if(cm < m){
+                // System.out.println(".....cm ");
+                prev = temp;
+                cm++;
+            }else if(cn < n) {
+                // System.out.println(".....cn "+ prev.data);
+                prev.next = null;
+                cn++; 
+            }else {
+                // System.out.println("........ ");
+                cn = 0;
+                cm = 1;
+                prev.next = temp;
+            }
+            
+            temp = temp.next;
+        }
+    }
+
     public static void PrintLinkedList() {
         if (head == null) {
             System.out.println();
@@ -368,14 +393,16 @@ public class Linkedlist {
 
     public static void main(String args[]) {
         Linkedlist ll = new Linkedlist();
-
+        addFirst(10);
+        addFirst(9);
+        addFirst(8);
+        addFirst(7);
+        addFirst(6);
         addFirst(5);
         addFirst(4);
         addFirst(3);
         addFirst(2);
         addFirst(1);
-        // addFirst(3);
-        // addFirst(2);
         // addFirst(0);
         // addLast(12);
         // addLast(1);
@@ -383,7 +410,7 @@ public class Linkedlist {
         // AddMiddle(2, 9);
         // removeFirst();
         // removeLast();
-        // PrintLinkedList();
+        PrintLinkedList();
         System.out.println("size is :: " + size);
         // recSearch(10);
         // reverse(head);
@@ -396,9 +423,10 @@ public class Linkedlist {
         // System.out.println(DetectLoop(head));
         // removeCycle();
         // System.out.println(DetectLoop(head));
-        PrintLinkedList();
         // System.out.println("sorted ll is :: " + Mergesort(head));
-        ZigZag(head);
+        // ZigZag(head);
+        // PrintLinkedList();
+        DeleteNnode(3, 2);
         PrintLinkedList();
     }
 }
