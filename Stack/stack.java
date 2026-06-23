@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class stack {
 
@@ -32,6 +33,27 @@ public class stack {
 
             return list.get(list.size() - 1);
         }
+
+    }
+
+    public static class Node {
+        int data;
+        Node next;
+
+        public Node(int data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public static Node head = null;
+    public static Node tail = null;
+
+
+    public static class stackUsingLinkelist {
+        LinkedList<Integer> ll = new LinkedList<>();
+
+        public static 
 
     }
 
