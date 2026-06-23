@@ -1,6 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class stack {
 
@@ -40,7 +39,7 @@ public class stack {
         int data;
         Node next;
 
-        public Node(int data){
+        public Node(int data) {
             this.data = data;
             this.next = null;
         }
@@ -49,22 +48,55 @@ public class stack {
     public static Node head = null;
     public static Node tail = null;
 
-
     public static class stackUsingLinkelist {
-        LinkedList<Integer> ll = new LinkedList<>();
+        // LinkedList<Integer> ll = new LinkedList<>();
 
-        public static 
+        public boolean isEmpty() {
+            return head == null;
+        }
+
+        public void push(int data) {
+            Node newNode = new Node(data);
+
+            if (isEmpty()) {
+                head = newNode;
+                return;
+            }
+
+            newNode.next = head;
+            head = newNode;
+
+        }
+
+        public int pop() {
+            if (isEmpty()) {
+                return -1;
+            }
+
+            int data = head.data;
+            head = head.next;
+
+            return data;
+        }
+
+        public int peek() {
+            if (isEmpty()) {
+                return -1;
+            }
+            return head.data;
+        }
 
     }
 
     public static void main(String args[]) {
-        stackUsingArrlist stack = new stackUsingArrlist();
+        // stackUsingArrlist stack = new stackUsingArrlist();
 
+        stackUsingLinkelist stack = new stackUsingLinkelist();
         stack.push(3);
         stack.push(2);
         stack.push(1);
 
-        while (!stack.isEmpty()) { 
+        while (!stack.isEmpty()) {
             System.out.println(stack.pop());
         }
 
