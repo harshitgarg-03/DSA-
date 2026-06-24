@@ -28,7 +28,6 @@ public class nextGreater {
 
         for (int idx = 0; idx < nextG.length; idx++) {
             System.out.println(nextG[idx]);
-            
         }
     }
 }
