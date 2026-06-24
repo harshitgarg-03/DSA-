@@ -18,6 +18,7 @@ public class nextGreater {
                     s.push(arr[i]);
                     break;
                 }
+                s.pop();
             }
 
             if(nextG[i] == 0){
@@ -27,7 +28,7 @@ public class nextGreater {
         }
 
         for (int idx = 0; idx < nextG.length; idx++) {
-            System.out.println(nextG[idx]);
+            System.out.print(nextG[idx] + " ");
         }
     }
 }
