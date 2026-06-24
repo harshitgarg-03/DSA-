@@ -1,8 +1,8 @@
 import java.util.Stack;
 
 public class DuplicateParan {
-    public static boolean main(String[] args) {
-        String str = "(((a+(b)))+(c+d))";
+    public static void main(String[] args) {
+        String str = "(a+b)";
         Stack<Character> s = new Stack<>();
         int active = 0;
 
@@ -16,13 +16,15 @@ public class DuplicateParan {
                     s.pop();
                 }
 
-                if(!(s.peek() == ')' && active == 1)){
-                    return true;
+                if(!(s.peek() == '(' && active == 1)){
+                    System.out.println("duplicate ");
+                    return;
                 }
+                s.pop();
                 active = 0;
             }
         }
 
-        return false;
+        System.out.println("not duplicate ");
     }
 }
