@@ -1,6 +1,5 @@
-import java.util.*;
 
-public class MergeSort {
+public class MergeSortString {
 
     public static void divide(String arr[], int si, int ei) {
         if (si >= ei) return;
