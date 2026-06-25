@@ -8,7 +8,7 @@ public class nextGreater {
         
         Stack<Integer> s = new Stack<>();
 
-        nextG[arr.length-1] = -1;
+        nextG[arr.length-1] = arr.length;
         s.push(arr[arr.length-1]);
 
         for(int i = arr.length-2; i >= 0; i--){
@@ -22,7 +22,7 @@ public class nextGreater {
             }
 
             if(nextG[i] == 0){
-                nextG[i] = -1;
+                nextG[i] = arr.length;
                 s.push(arr[i]);
             }
         }
