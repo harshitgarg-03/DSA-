@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class queue {
-
+    // queue implementing using arraylist not an optimal approach 
     public static class Q {
         ArrayList<Integer> list = new ArrayList<>();
 
