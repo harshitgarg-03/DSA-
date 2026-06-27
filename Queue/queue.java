@@ -39,7 +39,7 @@ public class queue {
             }
         }
     }
-
+ 
     public static void main(String args[]) {
         Q queuue = new Q();
 
