@@ -99,24 +99,24 @@ public class queue {
         int data;
         Node next;
 
-        public Node (int data){
+        public Node(int data) {
             this.data = data;
             this.next = null;
         }
     }
 
-    static Node FrontNode = null;
-    static Node RearNode = null;
-
+    
     public static class Qusingllist {
+        Node FrontNode = null;
+        Node RearNode = null;
 
-        public boolean isEmpty(){
+        public boolean isEmpty() {
             return FrontNode == null;
         }
 
-        public void addingNode(int data){
+        public void addingNode(int data) {
             Node AddNode = new Node(data);
-            if(isEmpty()){
+            if (isEmpty()) {
                 FrontNode = RearNode = AddNode;
                 return;
             }
@@ -124,33 +124,32 @@ public class queue {
             RearNode = AddNode;
         }
 
-        public void removingNode(){
-            if(isEmpty()){
+        public void removingNode() {
+            if (isEmpty()) {
                 System.out.println("Queue is empty");
                 return;
             }
 
             int data = FrontNode.data;
-            Node succNode = FrontNode.next;
-            FrontNode.next = null;
-            FrontNode = succNode;
+            if (FrontNode == RearNode) {
+                FrontNode = RearNode = null;
+            } else {
+                FrontNode = FrontNode.next;
+            }
 
             System.out.println("data removed is " + data);
         }
 
-        public void printing(){
+        public void printing() {
             Node initial = FrontNode;
 
-            System.out.println(FrontNode.data);
-            System.out.println(RearNode.data);
-            while(initial != null){
+            while (initial != null) {
                 System.out.print(initial.data + " ");
                 initial = initial.next;
             }
             System.out.println();
         }
     }
-
 
     public static void main(String args[]) {
 
