@@ -1,25 +1,25 @@
 import java.util.ArrayList;
 
 public class queue {
-    // queue implementing using arraylist not an optimal approach 
-    public static class Q {
+    // queue implementing using arraylist not an optimal approach
+    public static class QusingArraylist {
         ArrayList<Integer> list = new ArrayList<>();
 
         static int front;
 
-        public boolean isQEmpty (){
+        public boolean isQEmpty() {
             return list.isEmpty();
         }
 
-        public void AddQ(int data){
-            if(isQEmpty()){
+        public void AddQ(int data) {
+            if (isQEmpty()) {
                 front = data;
             }
             list.add(data);
         }
 
-        public void remove(){
-            if(isQEmpty()){
+        public void remove() {
+            if (isQEmpty()) {
                 System.out.println("queue is empty.!");
                 return;
             }
@@ -33,27 +33,73 @@ public class queue {
 
         }
 
-        public void printQ(){
-            for(int i = 0; i < list.size(); i++){
+        public void printQ() {
+            for (int i = 0; i < list.size(); i++) {
                 System.out.print(list.get(i) + " ");
             }
         }
     }
 
-    public static void main(String args[]) {
-        Q queuue = new Q();
+    // queue implementing using arrays an optimal approach
+    public static class QusingArr {
+        int arr[] = new int[6];
 
-        queuue.AddQ(1);
-        queuue.AddQ(2);
-        queuue.AddQ(3);
-        queuue.AddQ(4);
-        queuue.AddQ(5);
-        queuue.AddQ(6);
-        queuue.remove();
-        queuue.remove();
-        queuue.AddQ(7);
-        queuue.printQ();
-        // System.out.println(queuue.front);
-        
+        int front = -1;
+        int rear = -1;
+        int n = arr.length;
+
+        public boolean isEmpty() {
+            return front == -1;
+        }
+
+        public boolean isFull() {
+            return (rear + 1 % n == front);
+        }
+
+        public void Adding(int data) {
+            if (isFull()) {
+                System.out.println("Queue is full");
+                return;
+            }
+            if (isEmpty()) {
+                rear = front = 0;
+            } else {
+                rear = (rear + 1) % n;
+            }
+
+            arr[rear] = data;
+        }
+
+        public void removing() {
+            if (isEmpty()) {
+                System.out.println("Queue is empty");
+                return;
+            }
+
+            int data = arr[front];
+            System.out.println("Removed: " + data);
+
+            if (front == rear) {
+                front = rear = -1;
+            } else {
+                front = (front + 1) % n;
+            }
+        }
+
+        public void printQ() {
+            for (int i = 0; i < arr.length; i++) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static void main(String args[]) {
+
+        QusingArr q = new QusingArr();
+
+        // System.out.println(q.isEmpty());
+
     }
 }
