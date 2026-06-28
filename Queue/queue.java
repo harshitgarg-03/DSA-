@@ -137,6 +137,18 @@ public class queue {
 
             System.out.println("data removed is " + data);
         }
+
+        public void printing(){
+            Node initial = FrontNode;
+
+            System.out.println(FrontNode.data);
+            System.out.println(RearNode.data);
+            while(initial != null){
+                System.out.print(initial.data + " ");
+                initial = initial.next;
+            }
+            System.out.println();
+        }
     }
 
 
@@ -145,6 +157,11 @@ public class queue {
         Qusingllist q = new Qusingllist();
 
         System.out.println(q.isEmpty());
+        q.addingNode(1);
+        q.addingNode(2);
+        q.addingNode(3);
+        // q.removingNode();
+        q.printing();
 
     }
 }
