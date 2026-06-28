@@ -95,11 +95,56 @@ public class queue {
 
     }
 
+    public static class Node {
+        int data;
+        Node next;
+
+        public Node (int data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    static Node FrontNode = null;
+    static Node RearNode = null;
+
+    public static class Qusingllist {
+
+        public boolean isEmpty(){
+            return FrontNode == null;
+        }
+
+        public void addingNode(int data){
+            Node AddNode = new Node(data);
+            if(isEmpty()){
+                FrontNode = RearNode = AddNode;
+                return;
+            }
+            RearNode.next = AddNode;
+            RearNode = AddNode;
+        }
+
+        public void removingNode(){
+            if(isEmpty()){
+                System.out.println("Queue is empty");
+                return;
+            }
+
+            int data = FrontNode.data;
+            Node succNode = FrontNode.next;
+            FrontNode.next = null;
+            FrontNode = succNode;
+
+            System.out.println("data removed is " + data);
+        }
+    }
+
+
     public static void main(String args[]) {
 
-        QusingArr q = new QusingArr();
+        Qusingllist q = new Qusingllist();
 
-        // System.out.println(q.isEmpty());
+        System.out.println(q.isEmpty());
 
     }
 }
