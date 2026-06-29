@@ -95,6 +95,7 @@ public class queue {
 
     }
 
+    // queuue using linkedlist 
     public static class Node {
         int data;
         Node next;
