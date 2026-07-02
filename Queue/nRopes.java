@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class nRopes {
     public static void main(String args[]) {
-        int arr[] = {4, 3, 2, 6};
+        int arr[] = {1, 2, 3};
         Arrays.sort(arr);
 
         Queue<Integer> q = new LinkedList<>();
