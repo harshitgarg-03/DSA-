@@ -29,10 +29,7 @@ public class JobSeq {
         list.add(new Job(4, 1, 40));
 
         Collections.sort(list);
-
-        for (Job j : list){
-            System.out.println("job is :: " + j);
-        }
+        
         int maxDeadline = 0;
 
         for (Job j : list) {
