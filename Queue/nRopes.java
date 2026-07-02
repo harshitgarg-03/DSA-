@@ -1,27 +1,30 @@
+import java.util.PriorityQueue;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class nRopes {
     public static void main(String args[]) {
-        int arr[] = {1, 2, 3};
-        Arrays.sort(arr);
+        int arr[] = {10};
+        
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
 
-        Queue<Integer> q = new LinkedList<>();
-
-        for(int i = 0; i < arr.length; i++){
-            q.add(arr[i]);
-        }
-        int sum = 0;
-        int data = q.remove();
-
-        while(!q.isEmpty()){
-            int qdata = q.remove();
-            data = (qdata+data);
-            sum = (sum + data);
+        for (int num : arr) {
+            pq.add(num);
         }
 
-        System.out.println("minimum cost is " + sum);
+        int cost = 0;
+
+        while (pq.size() > 1) {
+
+            int first = pq.poll();
+            int second = pq.poll();
+
+            int sum = first + second;
+
+            cost += sum;
+
+            pq.add(sum);
+        }
+
+        System.out.println("minimum cost is " + cost);
     }
 }
