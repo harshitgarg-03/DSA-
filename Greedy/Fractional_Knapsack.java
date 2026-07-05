@@ -2,8 +2,11 @@ import java.util.Arrays;
 
 public class Fractional_Knapsack {
     public static void main(String[] args) {
-        Integer val[] = { 60, 100, 120 };
-        Integer wt[] = { 10, 20, 30 };
+        Integer val[] = {500};
+        Integer wt[] = {30};
+
+        int capacity = 10;
+        double profit = 0;
 
         Integer IdxArr[] = new Integer[val.length];
         for(int i = 0; i < val.length; i++){
@@ -17,6 +20,19 @@ public class Fractional_Knapsack {
                         (double) val[a] / wt[a]));
         
         System.out.println("list is :: " + Arrays.toString(IdxArr));
+
+        for(int i = 0; i < IdxArr.length; i++){
+            if(wt[IdxArr[i]] <= capacity){
+                profit += val[IdxArr[i]];
+                capacity = capacity - wt[IdxArr[i]];
+            }else {
+                double costPerKg = (double) val[IdxArr[i]] / wt[IdxArr[i]];
+                profit += costPerKg*capacity;
+                break;
+            }
+        }
+
+        System.out.printf("Profit = %.6f%n", profit);
 
     }
 }
