@@ -1,24 +1,20 @@
 public class Jump_Game2 {
     public static void main(String args[]) {
-        int nums[] = { 2, 3, 1, 1, 4 };
+        int nums[] = {2,3,0,1,4};
 
-        int max_Turn = Integer.MAX_VALUE;
+        int jumps = 0;
+        int currentEnd = 0;
+        int farthest = 0;
 
-        int n = nums.length;
+        for (int i = 0; i < nums.length - 1; i++) {
 
-        int max_idx = Integer.MIN_VALUE;
-        int count = 0;
+            farthest = Math.max(farthest, i + nums[i]);
 
-        for (int i = 0; i < n; i++) {
-            int j = i + nums[i];
-            count++;
-            while (i <= j) {
-                max_idx = Math.max(max_idx, i + nums[i]);
-                if (max_idx == n - 1) {
-                    System.out.println("max turn is " + count);
-                }
+            if (i == currentEnd) {
+                jumps++;
+                currentEnd = farthest;
             }
-
         }
+        System.out.println("minimum jumps are :: "+ jumps);
     }
 }
