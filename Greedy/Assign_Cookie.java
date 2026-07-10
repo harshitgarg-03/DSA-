@@ -3,8 +3,8 @@ import java.util.Arrays;
 
 public class Assign_Cookie {
     public static void main(String args[]) {
-        int g[] = {1, 2, 3};
-        int s[] = {1, 1};
+        int g[] = {1, 2};
+        int s[] = {1, 2, 3};
 
         Arrays.sort(g);
         Arrays.sort(s);
