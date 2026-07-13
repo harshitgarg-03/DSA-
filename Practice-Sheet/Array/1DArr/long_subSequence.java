@@ -2,10 +2,8 @@ import java.util.Arrays;
 
 public class long_subSequence {
     public static void main(String[] args) {
-        int arr[] = { 0, 3, 7, 2, 5, 8, 4, 6, 0, 1 };
-
-        // int arr[] = { 100, 4, 200, 1, 3, 2 };
-
+        // int arr[] = { 0, 3, 7, 2, 5, 8, 4, 6, 0, 1 };
+        int arr[] = { 100, 4, 200, 1, 3, 2 };
         Arrays.sort(arr);
         int count = 1;
         int max_count = 1;
@@ -17,8 +15,10 @@ public class long_subSequence {
                 count++;
             } else {
                 max_count = Math.max(max_count, count);
+                count = 1;
             }
         }
+        max_count = Math.max(max_count, count);
 
         System.out.println("maximum count is :: " + max_count);
     }
