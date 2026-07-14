@@ -1,3 +1,5 @@
+// using extra space 
+
 public class All_Permutation {
 
     public static void All_Pair(String str, String rstr) {
@@ -16,6 +18,6 @@ public class All_Permutation {
     public static void main(String[] args) {
         int arr[] = {1, 2, 3};
         
-        All_Pair("abc", "");
+        All_Pair("123", "");
     }
 }
