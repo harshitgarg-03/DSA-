@@ -28,9 +28,27 @@ public class Tree {
 
             return newNode;
         }
+
+        public static void preOrderTraversal(Node root){
+            if(root == null){
+                System.out.print(-1 + " ");
+                return;
+            }
+
+            System.out.print(root.data + " ");
+            preOrderTraversal(root.left);
+            preOrderTraversal(root.right);
+        }
     }
 
     public static void main(String[] args) {
         int arr[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
+
+        BinaryTree tree = new BinaryTree();
+
+        Node returnNode = tree.preOrderBinary(arr);
+
+        tree.preOrderTraversal(returnNode);
+        System.out.println();
     }
 }
