@@ -29,8 +29,8 @@ public class Tree {
             return newNode;
         }
 
-        public static void preOrderTraversal(Node root){
-            if(root == null){
+        public static void preOrderTraversal(Node root) {
+            if (root == null) {
                 System.out.print(-1 + " ");
                 return;
             }
@@ -40,8 +40,8 @@ public class Tree {
             preOrderTraversal(root.right);
         }
 
-        public static void InOrderTraversal(Node left){
-            if(left == null){
+        public static void InOrderTraversal(Node left) {
+            if (left == null) {
                 return;
             }
             Node root = left;
@@ -49,9 +49,9 @@ public class Tree {
             System.out.print(root.data + " ");
             InOrderTraversal(root.right);
         }
-        
-        public static void PostOrderTraversal(Node left){
-            if(left == null){
+
+        public static void PostOrderTraversal(Node left) {
+            if (left == null) {
                 return;
             }
             Node root = left;
