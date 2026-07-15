@@ -39,6 +39,16 @@ public class Tree {
             preOrderTraversal(root.left);
             preOrderTraversal(root.right);
         }
+
+        public static void InOrderTraversal(Node left){
+            if(left == null){
+                return;
+            }
+            Node root = left;
+            InOrderTraversal(root.left);
+            System.out.print(root.data + " ");
+            InOrderTraversal(root.right);
+        }
     }
 
     public static void main(String[] args) {
@@ -48,7 +58,8 @@ public class Tree {
 
         Node returnNode = tree.preOrderBinary(arr);
 
-        tree.preOrderTraversal(returnNode);
+        // tree.preOrderTraversal(returnNode);
+        tree.InOrderTraversal(returnNode);
         System.out.println();
     }
 }
