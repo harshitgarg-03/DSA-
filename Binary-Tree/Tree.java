@@ -49,6 +49,16 @@ public class Tree {
             System.out.print(root.data + " ");
             InOrderTraversal(root.right);
         }
+        
+        public static void PostOrderTraversal(Node left){
+            if(left == null){
+                return;
+            }
+            Node root = left;
+            InOrderTraversal(root.left);
+            InOrderTraversal(root.right);
+            System.out.print(root.data + " ");
+        }
     }
 
     public static void main(String[] args) {
