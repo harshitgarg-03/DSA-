@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Tree {
-
+ 
     static class Node {
         int data;
         Node left;
