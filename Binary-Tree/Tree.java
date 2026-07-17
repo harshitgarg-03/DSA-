@@ -108,6 +108,19 @@ public class Tree {
             return max_ht;
         }
 
+        public static int Count_Nodes(Node root){
+            if(root == null){
+                return 0;
+            }
+
+            int lh = Count_Nodes(root.left);
+            int rh = Count_Nodes(root.right);
+
+            int totalNOdes = lh+rh+1;
+
+            return totalNOdes;
+        }
+
     }
 
     public static void main(String[] args) {
@@ -120,6 +133,6 @@ public class Tree {
         // tree.preOrderTraversal(returnNode);
         // tree.InOrderTraversal(returnNode);
         // tree.LevelTraversal(returnNode);
-        System.out.println(tree.heigth(returnNode));
+        System.out.println(tree.Count_Nodes(returnNode));
     }
 }
