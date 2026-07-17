@@ -105,7 +105,6 @@ public class Tree {
             int lh = heigth(root.left);
             int rh = heigth(root.right);
             int max_ht = Math.max(lh, rh) + 1;
-
             return max_ht;
         }
 
