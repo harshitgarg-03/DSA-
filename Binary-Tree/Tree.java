@@ -19,6 +19,8 @@ public class Tree {
     public static class BinaryTree {
         static int idx = -1;
 
+        static int ht = 0;
+
         public static Node preOrderBinary(int arr[]) {
             idx++;
             if (arr[idx] == -1) {
@@ -94,6 +96,19 @@ public class Tree {
                 }
             }
         }
+
+        public static int heigth(Node root) {
+            if (root == null) {
+                return 0;
+            }
+
+            int lh = heigth(root.left);
+            int rh = heigth(root.right);
+            int max_ht = Math.max(lh, rh) + 1;
+
+            return max_ht;
+        }
+
     }
 
     public static void main(String[] args) {
@@ -105,7 +120,7 @@ public class Tree {
 
         // tree.preOrderTraversal(returnNode);
         // tree.InOrderTraversal(returnNode);
-        tree.LevelTraversal(returnNode);
-        System.out.println();
+        // tree.LevelTraversal(returnNode);
+        System.out.println(tree.heigth(returnNode));
     }
 }
