@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Tree {
- 
+
     static class Node {
         int data;
         Node left;
@@ -70,6 +70,7 @@ public class Tree {
 
             Queue<Node> q = new LinkedList<>();
             q.add(root);
+            q.add(null);
 
             while (!q.isEmpty()) {
                 Node CurrNode = q.remove();
@@ -82,7 +83,7 @@ public class Tree {
                         q.add(null);
                     }
                 } else {
-                    System.out.print(root.data + " ");
+                    System.out.print(CurrNode.data + " ");
                     if (CurrNode.left != null) {
                         q.add(CurrNode.left);
                     }
