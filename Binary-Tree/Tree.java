@@ -181,7 +181,7 @@ public class Tree {
 
         // tree.preOrderTraversal(returnNode);
         // tree.InOrderTraversal(returnNode);
-        tree.LevelTraversal(returnNode);
+        tree.preOrderTraversal(returnNode);
         // System.out.println(tree.Count_Sum_Nodes(returnNode));
     }
 }
