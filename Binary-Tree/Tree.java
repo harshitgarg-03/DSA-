@@ -23,6 +23,38 @@ public class Tree {
 
         static int sum = 0;
 
+        public static Node LevelTRaversalBuildTree(int arr[]) {
+
+            idx++;
+            if (arr[idx] == -1 || arr.length == 0) {
+                return null;
+            }
+
+            Node newNode = new Node(arr[idx]);
+
+            Queue<Node> q = new LinkedList<>();
+
+            q.add(newNode);
+
+            while (!q.isEmpty() && idx++ < arr.length) {
+                Node CurrNode = q.remove();
+
+                // left
+                if (idx < arr.length && arr[idx] != -1) {
+                    CurrNode.left = new Node(arr[idx++]);
+                    q.add(CurrNode.left);
+                }
+
+                // right
+                if (idx < arr.length && arr[idx] != -1) {
+                    CurrNode.right = new Node(arr[idx++]);
+                    q.add(CurrNode.right);
+                }
+
+            }
+            return newNode;
+        }
+
         public static Node preOrderBinary(int arr[]) {
             idx++;
             if (arr[idx] == -1) {
@@ -123,29 +155,33 @@ public class Tree {
             return totalNOdes;
         }
 
-        public static int Count_Sum_Nodes(Node root){
-            if(root == null){
+        public static int Count_Sum_Nodes(Node root) {
+            if (root == null) {
                 return 0;
             }
 
             int lh = Count_Sum_Nodes(root.left);
             int rh = Count_Sum_Nodes(root.right);
 
-            return lh+rh+root.data;
+            return lh + rh + root.data;
         }
 
     }
 
     public static void main(String[] args) {
-        int arr[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
+        // int arr[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
+
+        int arr[] = {1, 2, -1, 4, 5, -1, 6, -1, -1, 7, 8};
 
         BinaryTree tree = new BinaryTree();
 
-        Node returnNode = tree.preOrderBinary(arr);
+        // Node returnNode = tree.preOrderBinary(arr);
+
+        Node returnNode = tree.LevelTRaversalBuildTree(arr);
 
         // tree.preOrderTraversal(returnNode);
         // tree.InOrderTraversal(returnNode);
-        // tree.LevelTraversal(returnNode);
-        System.out.println(tree.Count_Sum_Nodes(returnNode));
+        tree.LevelTraversal(returnNode);
+        // System.out.println(tree.Count_Sum_Nodes(returnNode));
     }
 }
