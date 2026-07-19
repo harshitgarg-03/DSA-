@@ -181,6 +181,22 @@ public class Tree {
             return sum;
         }
 
+        public static int Diameter(Node root){
+            if(root == null){
+                return 0;
+            }
+
+            int left = Diameter(root.left);
+            int right = Diameter(root.right);
+
+            int height = heigth(root.left) + 1 + heigth(root.right);
+
+
+            int max_diameter = Math.max(left, Math.max(right, height));
+
+            return max_diameter;
+        }
+
     }
 
     public static void main(String[] args) {
@@ -192,9 +208,11 @@ public class Tree {
 
         Node returnNode = tree.preOrderBinary(arr);
         // tree.preOrderTraversal(returnNode);
-        System.out.println(returnNode.data);
+        // System.out.println(returnNode.data);
 
-        System.out.println(tree.Count_Leaves(returnNode));
+        // System.out.println(tree.Count_Leaves(returnNode));
+
+        System.out.println(tree.Diameter(returnNode));
 
         // System.out.println("leaf count is :: " + count);
 
