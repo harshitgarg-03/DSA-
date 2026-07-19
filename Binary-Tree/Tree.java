@@ -166,22 +166,43 @@ public class Tree {
             return lh + rh + root.data;
         }
 
+        public static int Count_Leaves(Node root) {
+            if (root == null) {
+                return 0;
+            }
+
+            int lh = Count_Leaves(root.left);
+            int rh = Count_Leaves(root.right);
+            int sum = lh+rh;
+
+            if(root.left == null && root.right == null){
+                sum = sum +1;
+            }
+            return sum;
+        }
+
     }
 
     public static void main(String[] args) {
-        // int arr[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
+        int arr[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
 
-        int arr[] = {1, 2, -1, 4, 5, -1, 6, -1, -1, 7, 8};
+        // int arr[] = {1, 2, -1, 4, 5, -1, 6, -1, -1, 7, 8, -1, -1, -1, -1};
 
         BinaryTree tree = new BinaryTree();
 
-        // Node returnNode = tree.preOrderBinary(arr);
+        Node returnNode = tree.preOrderBinary(arr);
+        // tree.preOrderTraversal(returnNode);
+        System.out.println(returnNode.data);
 
-        Node returnNode = tree.LevelTRaversalBuildTree(arr);
+        System.out.println(tree.Count_Leaves(returnNode));
+
+        // System.out.println("leaf count is :: " + count);
+
+        // Node returnNode = tree.LevelTRaversalBuildTree(arr);
 
         // tree.preOrderTraversal(returnNode);
         // tree.InOrderTraversal(returnNode);
-        tree.preOrderTraversal(returnNode);
+        // tree.preOrderTraversal(returnNode);
         // System.out.println(tree.Count_Sum_Nodes(returnNode));
     }
 }
