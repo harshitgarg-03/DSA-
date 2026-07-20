@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -173,16 +174,16 @@ public class Tree {
 
             int lh = Count_Leaves(root.left);
             int rh = Count_Leaves(root.right);
-            int sum = lh+rh;
+            int sum = lh + rh;
 
-            if(root.left == null && root.right == null){
-                sum = sum +1;
+            if (root.left == null && root.right == null) {
+                sum = sum + 1;
             }
             return sum;
         }
 
-        public static int Diameter(Node root){
-            if(root == null){
+        public static int Diameter(Node root) {
+            if (root == null) {
                 return 0;
             }
 
@@ -191,12 +192,55 @@ public class Tree {
 
             int height = heigth(root.left) + 1 + heigth(root.right);
 
-
             int max_diameter = Math.max(left, Math.max(right, height));
 
             return max_diameter;
         }
 
+        public static ArrayList<Integer> ZigZag_TRaversal(Node root) {
+            ArrayList<Integer> list = new ArrayList<>();
+
+            if (root == null) {
+                return list;
+            }
+
+            int level = 0;
+            Queue<Node> q = new LinkedList<>();
+            q.add(root);
+
+            while (!q.isEmpty()) {
+
+                int size = q.size();
+
+                ArrayList<Integer> temp = new ArrayList<>();
+
+                for (int i = 0; i < size; i++) {
+
+                    Node newNode = q.remove();
+
+                    if (level % 2 == 0) {
+                        temp.add(newNode.data);
+                    } else {
+                        temp.add(0, newNode.data);
+                    }
+
+                    if (newNode.left != null) {
+                        q.add(newNode.left);
+                    }
+
+                    if (newNode.right != null) {
+                        q.add(newNode.right);
+                    }
+                }
+
+                list.addAll(temp);
+                level++;
+            }
+
+            System.out.println("list is :: " + list);
+
+            return list;
+        }
     }
 
     public static void main(String[] args) {
@@ -212,7 +256,8 @@ public class Tree {
 
         // System.out.println(tree.Count_Leaves(returnNode));
 
-        System.out.println(tree.Diameter(returnNode));
+        // System.out.println(tree.Diameter(returnNode));
+        System.out.println(tree.ZigZag_TRaversal(returnNode));
 
         // System.out.println("leaf count is :: " + count);
 
