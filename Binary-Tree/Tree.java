@@ -320,9 +320,9 @@ public class Tree {
             // right_List.removeLast();
             list.addAll(right_List);
 
-            System.out.println("left subtree is :: "+ leftList);
-            System.out.println("right subtree is :: "+ right_List);
-            System.out.println("leaf subtree is :: "+ leaves_List);
+            System.out.println("left subtree is :: " + leftList);
+            System.out.println("right subtree is :: " + right_List);
+            System.out.println("leaf subtree is :: " + leaves_List);
             return list;
         }
     }
@@ -332,7 +332,7 @@ public class Tree {
 
         // int arr[] = { 1, -1, 2, -1, 3, -1, 4, -1, -1 };
 
-        int arr[] = {1, -1, -1};
+        int arr[] = { 1, -1, -1 };
         // int arr[] = {1, 2, -1, 4, 5, -1, 6, -1, -1, 7, 8, -1, -1, -1, -1};
 
         BinaryTree tree = new BinaryTree();
