@@ -24,36 +24,42 @@ public class Tree {
 
         static int sum = 0;
 
-        public static Node LevelTRaversalBuildTree(int arr[]) {
+        public static Node LevelTRaversalBuildTree(int[] arr) {
 
-            idx++;
-            if (arr[idx] == -1 || arr.length == 0) {
+            if (arr.length == 0 || arr[0] == -1)
                 return null;
-            }
 
-            Node newNode = new Node(arr[idx]);
+            Node root = new Node(arr[0]);
 
             Queue<Node> q = new LinkedList<>();
+            q.offer(root);
 
-            q.add(newNode);
+            int idx = 1;
 
-            while (!q.isEmpty() && idx++ < arr.length) {
-                Node CurrNode = q.remove();
+            while (!q.isEmpty() && idx < arr.length) {
 
-                // left
-                if (idx < arr.length && arr[idx] != -1) {
-                    CurrNode.left = new Node(arr[idx++]);
-                    q.add(CurrNode.left);
+                Node curr = q.poll();
+
+                // Left child
+                if (idx < arr.length) {
+                    if (arr[idx] != -1) {
+                        curr.left = new Node(arr[idx]);
+                        q.offer(curr.left);
+                    }
+                    idx++;
                 }
 
-                // right
-                if (idx < arr.length && arr[idx] != -1) {
-                    CurrNode.right = new Node(arr[idx++]);
-                    q.add(CurrNode.right);
+                // Right child
+                if (idx < arr.length) {
+                    if (arr[idx] != -1) {
+                        curr.right = new Node(arr[idx]);
+                        q.offer(curr.right);
+                    }
+                    idx++;
                 }
-
             }
-            return newNode;
+
+            return root;
         }
 
         public static Node preOrderBinary(int arr[]) {
@@ -177,6 +183,7 @@ public class Tree {
             int sum = lh + rh;
 
             if (root.left == null && root.right == null) {
+                System.out.println("leave node is " + root.data);
                 sum = sum + 1;
             }
             return sum;
@@ -241,23 +248,110 @@ public class Tree {
 
             return list;
         }
+
+        public static ArrayList<Integer> Left_Traversal(Node root, ArrayList<Integer> list) {
+            if (root == null || (root.left == null && root.right == null)) {
+                return list;
+            }
+
+            list.add(root.data);
+            if (root.left != null) {
+                Left_Traversal(root.left, list);
+            } else {
+                Left_Traversal(root.right, list);
+            }
+
+            return list;
+        }
+
+        public static ArrayList<Integer> Leaves_Traversal(Node root, ArrayList<Integer> list) {
+            if (root == null) {
+                return list;
+            }
+
+            if (root.left == null && root.right == null) {
+                list.add(root.data);
+                return list;
+            }
+
+            if (root.left != null) {
+                Leaves_Traversal(root.left, list);
+            }
+            if (root.right != null) {
+                Leaves_Traversal(root.right, list);
+            }
+
+            return list;
+
+        }
+
+        public static ArrayList<Integer> right_Traversal(Node root, ArrayList<Integer> list) {
+            if (root == null || (root.left == null && root.right == null)) {
+                return list;
+            }
+
+            if (root.right != null) {
+                right_Traversal(root.right, list);
+            } else if (root.left != null) {
+                right_Traversal(root.left, list);
+            }
+
+            list.add(root.data);
+
+            return list;
+        }
+
+        public static ArrayList<Integer> Boundary_Traversal(Node root) {
+            ArrayList<Integer> list = new ArrayList<>();
+
+            list.add(root.data);
+            if (root == null || (root.left == null && root.right == null)) {
+                return list;
+            }
+
+            ArrayList<Integer> leftList = new ArrayList<>();
+            ArrayList<Integer> leaves_List = new ArrayList<>();
+            ArrayList<Integer> right_List = new ArrayList<>();
+            leftList = Left_Traversal(root.left, leftList);
+            leaves_List = Leaves_Traversal(root, leaves_List);
+            right_List = right_Traversal(root.right, right_List);
+            list.addAll(leftList);
+            list.addAll(leaves_List);
+            // right_List.removeLast();
+            list.addAll(right_List);
+
+            System.out.println("left subtree is :: "+ leftList);
+            System.out.println("right subtree is :: "+ right_List);
+            System.out.println("leaf subtree is :: "+ leaves_List);
+            return list;
+        }
     }
 
     public static void main(String[] args) {
-        int arr[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
+        // int arr[] = { 1, 2, 3, 4, 5, 6, 7, -1, -1, 8, 9, -1, -1, -1, -1 };
 
+        // int arr[] = { 1, -1, 2, -1, 3, -1, 4, -1, -1 };
+
+        int arr[] = {1, -1, -1};
         // int arr[] = {1, 2, -1, 4, 5, -1, 6, -1, -1, 7, 8, -1, -1, -1, -1};
 
         BinaryTree tree = new BinaryTree();
 
-        Node returnNode = tree.preOrderBinary(arr);
+        // Node returnNode = tree.preOrderBinary(arr);
+
+        Node returnNode = tree.LevelTRaversalBuildTree(arr);
         // tree.preOrderTraversal(returnNode);
         // System.out.println(returnNode.data);
 
         // System.out.println(tree.Count_Leaves(returnNode));
 
         // System.out.println(tree.Diameter(returnNode));
-        System.out.println(tree.ZigZag_TRaversal(returnNode));
+        // System.out.println(tree.ZigZag_TRaversal(returnNode));
+        // System.out.println("level traversal is :: ");
+        // tree.LevelTraversal(returnNode);
+        System.out.println("boundayr traversal is :: " + tree.Boundary_Traversal(returnNode));
+        // System.out.println("boundayr traversal is :: " +
+        // tree.Count_Leaves(returnNode));
 
         // System.out.println("leaf count is :: " + count);
 
