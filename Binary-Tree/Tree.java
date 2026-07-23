@@ -18,7 +18,7 @@ public class Tree {
     }
  
     public static class BinaryTree {
-        static int idx = -1;
+        static int idx = -1; 
 
         static int ht = 0;
 
