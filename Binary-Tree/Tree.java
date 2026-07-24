@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.TreeMap;
 
 public class Tree {
- 
+
     static class Node {
         int data;
         Node left;
@@ -17,9 +17,9 @@ public class Tree {
             this.right = null;
         }
     }
- 
+
     public static class BinaryTree {
-        static int idx = -1;  
+        static int idx = -1;
 
         static int ht = 0;
 
@@ -326,8 +326,8 @@ public class Tree {
             System.out.println("leaf subtree is :: " + leaves_List);
             return list;
         }
-        
-        static class Info{
+
+        static class Info {
             Node root;
             int ht;
             int data;
@@ -339,7 +339,7 @@ public class Tree {
             }
         }
 
-        public static ArrayList<Integer> TopOfView(Node root){
+        public static ArrayList<Integer> TopOfView(Node root) {
 
             ArrayList<Integer> list = new ArrayList<>();
 
@@ -347,31 +347,58 @@ public class Tree {
             q.add(new Info(root, 0, root.data));
             TreeMap<Integer, Integer> hash = new TreeMap<>();
 
-            while(!q.isEmpty()){
+            while (!q.isEmpty()) {
                 Info curr = q.remove();
 
                 Node currNode = curr.root;
 
-                if(hash.get(curr.ht) == null){
+                if (hash.get(curr.ht) == null) {
                     hash.put(curr.ht, currNode.data);
                 }
 
-
-                if(currNode.left != null){
-                    q.add(new Info(currNode.left, curr.ht-1, currNode.left.data));
+                if (currNode.left != null) {
+                    q.add(new Info(currNode.left, curr.ht - 1, currNode.left.data));
                 }
 
-                if(currNode.right != null){
-                    q.add(new Info(currNode.right, curr.ht+1, currNode.right.data));
+                if (currNode.right != null) {
+                    q.add(new Info(currNode.right, curr.ht + 1, currNode.right.data));
                 }
             }
-
 
             list.addAll(hash.values());
             System.out.println(list);
 
             return list;
         }
+
+        record Level_Info(Node x, int level) {
+        }
+
+        public static void K_Level(Node root, int level, int k, Queue<Level_Info> q) {
+            if (root == null) {
+                return;
+            }
+
+            q.add(new Level_Info(root, level));
+            while (!q.isEmpty()) {
+                Level_Info data = q.remove();
+
+                int dlevel = data.level;
+                if (dlevel == k) {
+                    System.out.print(data.x.data);
+                }
+
+                if(data.x.left != null) {
+                    q.add(new Level_Info(data.x.left, data.level+1));
+                }
+                if(data.x.right != null){
+                    q.add(new Level_Info(data.x.right, data.level+1));
+                }
+
+            }
+
+        }
+    
     
     }
 
@@ -380,23 +407,24 @@ public class Tree {
 
         // int arr[] = { 1, -1, 2, -1, 3, -1, 4, -1, -1 };
 
-        int arr[] = { 6, 3, 4, -1, 2, 9, 3, -1, 9 };
+        int arr[] = { 1, 2, 3, 4, 5, 6, 7 };
         // int arr[] = { 1, -1, -1 };
         // int arr[] = {1, 2, -1, 4, 5, -1, 6, -1, -1, 7, 8, -1, -1, -1, -1};
 
         BinaryTree tree = new BinaryTree();
 
-        // Node returnNode = tree.preOrderBinary(arr);
-
         Node returNode = tree.LevelTRaversalBuildTree(arr);
+        Queue<BinaryTree.Level_Info> q = new LinkedList<>();
+        tree.K_Level(returNode, 1, 3, q);
+
+        // Node returnNode = tree.preOrderBinary(arr);
 
         // tree.LevelTraversal(returNode);
 
         // HashMap<Integer, Integer> hash = new HashMap<>();
-         ArrayList<Integer> list =  tree.TopOfView(returNode);
+        // ArrayList<Integer> list = tree.TopOfView(returNode);
 
         // TreeMap<Integer, Integer> sortedHash = new TreeMap<>(hash);
-
 
         // System.out.println(sortedHash);
 
@@ -410,7 +438,8 @@ public class Tree {
         // System.out.println(tree.ZigZag_TRaversal(returnNode));
         // System.out.println("level traversal is :: ");
         // tree.LevelTraversal(returnNode);
-        // System.out.println("boundayr traversal is :: " + tree.Boundary_Traversal(returnNode));
+        // System.out.println("boundayr traversal is :: " +
+        // tree.Boundary_Traversal(returnNode));
         // System.out.println("boundayr traversal is :: " +
         // tree.Count_Leaves(returnNode));
 
