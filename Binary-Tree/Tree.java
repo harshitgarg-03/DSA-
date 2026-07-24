@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.TreeMap;
 
 public class Tree {
  
@@ -325,6 +326,53 @@ public class Tree {
             System.out.println("leaf subtree is :: " + leaves_List);
             return list;
         }
+        
+        static class Info{
+            Node root;
+            int ht;
+            int data;
+
+            Info(Node root, int hd, int data) {
+                this.root = root;
+                this.ht = hd;
+                this.data = data;
+            }
+        }
+
+        public static ArrayList<Integer> TopOfView(Node root){
+
+            ArrayList<Integer> list = new ArrayList<>();
+
+            Queue<Info> q = new LinkedList<>();
+            q.add(new Info(root, 0, root.data));
+            TreeMap<Integer, Integer> hash = new TreeMap<>();
+
+            while(!q.isEmpty()){
+                Info curr = q.remove();
+
+                Node currNode = curr.root;
+
+                if(hash.get(curr.ht) == null){
+                    hash.put(curr.ht, currNode.data);
+                }
+
+
+                if(currNode.left != null){
+                    q.add(new Info(currNode.left, curr.ht-1, currNode.left.data));
+                }
+
+                if(currNode.right != null){
+                    q.add(new Info(currNode.right, curr.ht+1, currNode.right.data));
+                }
+            }
+
+
+            list.addAll(hash.values());
+            System.out.println(list);
+
+            return list;
+        }
+    
     }
 
     public static void main(String[] args) {
@@ -332,14 +380,27 @@ public class Tree {
 
         // int arr[] = { 1, -1, 2, -1, 3, -1, 4, -1, -1 };
 
-        int arr[] = { 1, -1, -1 };
+        int arr[] = { 6, 3, 4, -1, 2, 9, 3, -1, 9 };
+        // int arr[] = { 1, -1, -1 };
         // int arr[] = {1, 2, -1, 4, 5, -1, 6, -1, -1, 7, 8, -1, -1, -1, -1};
 
         BinaryTree tree = new BinaryTree();
 
         // Node returnNode = tree.preOrderBinary(arr);
 
-        Node returnNode = tree.LevelTRaversalBuildTree(arr);
+        Node returNode = tree.LevelTRaversalBuildTree(arr);
+
+        // tree.LevelTraversal(returNode);
+
+        // HashMap<Integer, Integer> hash = new HashMap<>();
+         ArrayList<Integer> list =  tree.TopOfView(returNode);
+
+        // TreeMap<Integer, Integer> sortedHash = new TreeMap<>(hash);
+
+
+        // System.out.println(sortedHash);
+
+        // Node returnNode = tree.LevelTRaversalBuildTree(arr);
         // tree.preOrderTraversal(returnNode);
         // System.out.println(returnNode.data);
 
@@ -349,7 +410,7 @@ public class Tree {
         // System.out.println(tree.ZigZag_TRaversal(returnNode));
         // System.out.println("level traversal is :: ");
         // tree.LevelTraversal(returnNode);
-        System.out.println("boundayr traversal is :: " + tree.Boundary_Traversal(returnNode));
+        // System.out.println("boundayr traversal is :: " + tree.Boundary_Traversal(returnNode));
         // System.out.println("boundayr traversal is :: " +
         // tree.Count_Leaves(returnNode));
 
@@ -361,5 +422,11 @@ public class Tree {
         // tree.InOrderTraversal(returnNode);
         // tree.preOrderTraversal(returnNode);
         // System.out.println(tree.Count_Sum_Nodes(returnNode));
+
+
+
+
+
+
     }
 }
