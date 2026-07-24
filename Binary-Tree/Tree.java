@@ -385,7 +385,8 @@ public class Tree {
 
                 int dlevel = data.level;
                 if (dlevel == k) {
-                    System.out.print(data.x.data);
+                    sum += data.x.data;
+                    System.out.print(data.x.data + " ");
                 }
 
                 if(data.x.left != null) {
@@ -396,6 +397,9 @@ public class Tree {
                 }
 
             }
+            System.out.println();
+
+            System.out.println("all node sum is at kth level is " + sum);
 
         }
     
