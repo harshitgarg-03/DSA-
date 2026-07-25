@@ -389,11 +389,11 @@ public class Tree {
                     System.out.print(data.x.data + " ");
                 }
 
-                if(data.x.left != null) {
-                    q.add(new Level_Info(data.x.left, data.level+1));
+                if (data.x.left != null) {
+                    q.add(new Level_Info(data.x.left, data.level + 1));
                 }
-                if(data.x.right != null){
-                    q.add(new Level_Info(data.x.right, data.level+1));
+                if (data.x.right != null) {
+                    q.add(new Level_Info(data.x.right, data.level + 1));
                 }
 
             }
@@ -402,8 +402,25 @@ public class Tree {
             System.out.println("all node sum is at kth level is " + sum);
 
         }
-    
-    
+
+        public static Node LCA(Node root, int targetP, int targetQ) {
+
+            if (root == null || root == targetP || root == targetQ) {
+                return root;
+            }
+
+            Node leftData = LCA(root.left, targetP, targetQ);
+            Node rightdata = LCA(root.right, targetP, targetQ);
+
+            if (leftData == null) {
+                return rightdata;
+            } else if (rightdata == null) {
+                return leftData;
+            } else {
+                return root;
+            }
+
+        }
     }
 
     public static void main(String[] args) {
@@ -418,8 +435,23 @@ public class Tree {
         BinaryTree tree = new BinaryTree();
 
         Node returNode = tree.LevelTRaversalBuildTree(arr);
-        Queue<BinaryTree.Level_Info> q = new LinkedList<>();
-        tree.K_Level(returNode, 1, 3, q);
+        // Queue<BinaryTree.Level_Info> q = new LinkedList<>();
+        // tree.K_Level(returNode, 1, 3, q);
+
+        Node p = new Node(5);
+        Node q = new Node(7);
+
+        // ArrayList<Integer> listP = new ArrayList<>();
+        // ArrayList<Integer> listQ = new ArrayList<>();
+
+        Node common_root = tree.LCA(returNode, p, q);
+        System.out.println("Common root is :: "+ common_root.data);
+        // System.out.println(Arrays.toString(listP));
+        // System.out.println(listP);
+
+        // tree.LCA(returNode, q, listQ);
+
+        // aage ki kahani baad m
 
         // Node returnNode = tree.preOrderBinary(arr);
 
