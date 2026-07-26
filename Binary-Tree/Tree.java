@@ -450,29 +450,29 @@ public class Tree {
         BinaryTree tree = new BinaryTree();
 
         Node returNode = tree.LevelTRaversalBuildTree(arr);
-        Queue<BinaryTree.Level_Info> q = new LinkedList<>();
-        // tree.K_Level(returNode, 1, 3, q);
+        // Queue<BinaryTree.Level_Info> q = new LinkedList<>();
+        // // tree.K_Level(returNode, 1, 3, q);
 
-        q = tree.k_distance(returNode, 1, q);
+        // q = tree.k_distance(returNode, 1, q);
 
-        int gap = 0;
-        Node aNode = new Node(7);
-        Node bNode = new Node(4);
-        while (!q.isEmpty()) {
-            BinaryTree.Level_Info data = q.poll();
+        // int gap = 0;
+        // Node aNode = new Node(7);
+        // Node bNode = new Node(4);
+        // while (!q.isEmpty()) {
+        //     BinaryTree.Level_Info data = q.poll();
 
-            System.out.print(data.level + " " + data.x.data);
+        //     System.out.print(data.level + " " + data.x.data);
 
-            if(data.x.data == aNode.data || data.x.data == bNode.data){
-                gap += data.level;
-            }
+        //     if(data.x.data == aNode.data || data.x.data == bNode.data){
+        //         gap += data.level;
+        //     }
             
-            System.out.println();
+        //     System.out.println();
             
-        }
-        gap = gap-2;
+        // }
+        // gap = gap-2;
 
-        System.out.println("the edges gap between two nodes is :: " + gap);
+        // System.out.println("the edges gap between two nodes is :: " + gap);
         // Node p = new Node(5);
         // Node q = new Node(7);
 
