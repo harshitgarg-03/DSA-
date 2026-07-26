@@ -403,22 +403,37 @@ public class Tree {
 
         }
 
-        public static Node LCA(Node root, int targetP, int targetQ) {
+        // public static Node LCA(Node root, int targetP, int targetQ) {
 
-            if (root == null || root == targetP || root == targetQ) {
-                return root;
+        // if (root == null || root == targetP || root == targetQ) {
+        // return root;
+        // }
+
+        // Node leftData = LCA(root.left, targetP, targetQ);
+        // Node rightdata = LCA(root.right, targetP, targetQ);
+
+        // if (leftData == null) {
+        // return rightdata;
+        // } else if (rightdata == null) {
+        // return leftData;
+        // } else {
+        // return root;
+        // }
+
+        // }
+
+        public static Queue<Level_Info> k_distance(Node root, int level, Queue<Level_Info> q) {
+            if (root == null) {
+                return q;
             }
 
-            Node leftData = LCA(root.left, targetP, targetQ);
-            Node rightdata = LCA(root.right, targetP, targetQ);
+            // System.out.print(root.data + " ");
+            q.add(new Level_Info(root, level));
 
-            if (leftData == null) {
-                return rightdata;
-            } else if (rightdata == null) {
-                return leftData;
-            } else {
-                return root;
-            }
+            k_distance(root.left, level + 1, q);
+            k_distance(root.right, level + 1, q);
+
+            return q;
 
         }
     }
@@ -435,17 +450,37 @@ public class Tree {
         BinaryTree tree = new BinaryTree();
 
         Node returNode = tree.LevelTRaversalBuildTree(arr);
-        // Queue<BinaryTree.Level_Info> q = new LinkedList<>();
+        Queue<BinaryTree.Level_Info> q = new LinkedList<>();
         // tree.K_Level(returNode, 1, 3, q);
 
-        Node p = new Node(5);
-        Node q = new Node(7);
+        q = tree.k_distance(returNode, 1, q);
+
+        int gap = 0;
+        Node aNode = new Node(7);
+        Node bNode = new Node(4);
+        while (!q.isEmpty()) {
+            BinaryTree.Level_Info data = q.poll();
+
+            System.out.print(data.level + " " + data.x.data);
+
+            if(data.x.data == aNode.data || data.x.data == bNode.data){
+                gap += data.level;
+            }
+            
+            System.out.println();
+            
+        }
+        gap = gap-2;
+
+        System.out.println("the edges gap between two nodes is :: " + gap);
+        // Node p = new Node(5);
+        // Node q = new Node(7);
 
         // ArrayList<Integer> listP = new ArrayList<>();
         // ArrayList<Integer> listQ = new ArrayList<>();
 
-        Node common_root = tree.LCA(returNode, p, q);
-        System.out.println("Common root is :: "+ common_root.data);
+        // Node common_root = tree.LCA(returNode, p, q);
+        // System.out.println("Common root is :: "+ common_root.data);
         // System.out.println(Arrays.toString(listP));
         // System.out.println(listP);
 
