@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.TreeMap;
@@ -436,6 +437,30 @@ public class Tree {
             return q;
 
         }
+
+        public static String Duplicate_Tree(Node root, ArrayList<Node> list, HashMap<String, Integer> map) {
+            if (root == null) {
+                return "";
+            }
+
+            String left = Duplicate_Tree(root.left, list, map);
+            String right = Duplicate_Tree(root.right, list, map);
+
+            int CurrNodedata = root.data;
+
+            String str = CurrNodedata + "$" + left + "$" + right;
+
+            if (map.getOrDefault(str, 0) == 1) {
+                System.out.print(root.data + " ");
+                list.add(root);
+            }
+
+            map.put(str, map.getOrDefault(str, 0)+1);
+
+            return str;
+
+        }
+
     }
 
     public static void main(String[] args) {
@@ -450,6 +475,14 @@ public class Tree {
         BinaryTree tree = new BinaryTree();
 
         Node returNode = tree.LevelTRaversalBuildTree(arr);
+
+        ArrayList<Node> list = new ArrayList<>();
+
+        HashMap<String, Integer> map = new HashMap<>();
+
+        tree.Duplicate_Tree(returNode, list, map);
+
+        System.out.println(list);
         // Queue<BinaryTree.Level_Info> q = new LinkedList<>();
         // // tree.K_Level(returNode, 1, 3, q);
 
@@ -459,16 +492,16 @@ public class Tree {
         // Node aNode = new Node(7);
         // Node bNode = new Node(4);
         // while (!q.isEmpty()) {
-        //     BinaryTree.Level_Info data = q.poll();
+        // BinaryTree.Level_Info data = q.poll();
 
-        //     System.out.print(data.level + " " + data.x.data);
+        // System.out.print(data.level + " " + data.x.data);
 
-        //     if(data.x.data == aNode.data || data.x.data == bNode.data){
-        //         gap += data.level;
-        //     }
-            
-        //     System.out.println();
-            
+        // if(data.x.data == aNode.data || data.x.data == bNode.data){
+        // gap += data.level;
+        // }
+
+        // System.out.println();
+
         // }
         // gap = gap-2;
 
