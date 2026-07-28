@@ -59,6 +59,10 @@ public class heap {
             heapify(0);
 
         }
+
+        public boolean IsEmpty() {
+            return list.size() == 0;
+        }
     }
 
     public static void main(String args[]) {
