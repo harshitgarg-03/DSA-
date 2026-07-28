@@ -20,6 +20,10 @@ public class heap {
             }
 
         }
+
+        public int Peek(){
+            return list.get(0);
+        }
     }
 
     public static void main(String args[]) {
