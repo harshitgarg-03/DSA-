@@ -17,6 +17,9 @@ public class heap {
 
                 list.set(childIdx, list.get(parIdx));
                 list.set(parIdx, temp);
+
+                childIdx = parIdx;
+                parIdx = (childIdx-1)/2;
             }
 
         }
