@@ -21,8 +21,20 @@ public class heap {
 
         }
 
-        public int Peek(){
+        public int Peek() {
             return list.get(0);
+        }
+
+        public void Remove() {
+
+            int data = list.get(0);
+            list.set(0, list.get(list.size() - 1));
+            list.set(list.get(list.size() - 1), data);
+
+            list.remove(list.size() - 1);
+
+            heapify(0);
+
         }
     }
 
