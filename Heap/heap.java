@@ -25,6 +25,29 @@ public class heap {
             return list.get(0);
         }
 
+        private void heapify(int i) {
+            int left = 2 * i + 1;
+            int right = 2 * i + 2;
+            int minIdx = i;
+
+            if (left < list.size() && list.get(minIdx) > list.get(left)) {
+                minIdx = left;
+            }
+
+            if (right < list.size() && list.get(minIdx) > list.get(right)) {
+                minIdx = right;
+            }
+
+            if (minIdx != i) {
+                int temp = list.get(i);
+                list.set(i, list.get(minIdx));
+                list.set(minIdx, temp);
+
+                heapify(minIdx);
+            }
+
+        }
+
         public void Remove() {
 
             int data = list.get(0);
