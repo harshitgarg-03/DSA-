@@ -69,6 +69,18 @@ public class heap {
     }
 
     public static void main(String args[]) {
+        Heap hp = new Heap();
+
+        hp.Add(3);
+        hp.Add(4);
+        hp.Add(1);
+        hp.Add(5);
+
+        while(!hp.IsEmpty()){
+            System.out.println(hp.Peek());
+
+            hp.Remove();
+        }
 
     }
 }
