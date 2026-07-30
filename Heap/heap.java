@@ -19,7 +19,7 @@ public class heap {
                 list.set(parIdx, temp);
 
                 childIdx = parIdx;
-                parIdx = (childIdx-1)/2;
+                parIdx = (childIdx - 1) / 2;
             }
 
         }
@@ -76,7 +76,7 @@ public class heap {
         hp.Add(1);
         hp.Add(5);
 
-        while(!hp.IsEmpty()){
+        while (!hp.IsEmpty()) {
             System.out.println(hp.Peek());
 
             hp.Remove();
