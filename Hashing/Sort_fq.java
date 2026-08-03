@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Sort_fq {
     public static void main(String[] args) {
-        String str = "cccaaabbaddddd";
+        String str = "tree";
         HashMap<Character, Integer> hm = new HashMap<>();
         String newstr = "";
         for (int i = 0; i < str.length(); i++) {
