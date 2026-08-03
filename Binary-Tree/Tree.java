@@ -1,7 +1,9 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 import java.util.TreeMap;
 
@@ -455,12 +457,26 @@ public class Tree {
                 list.add(root);
             }
 
-            map.put(str, map.getOrDefault(str, 0)+1);
+            map.put(str, map.getOrDefault(str, 0) + 1);
 
             return str;
 
         }
 
+        public static HashMap<Integer, ArrayList<Integer>> vertical_tree(Node root, int hd,
+                HashMap<Integer, ArrayList<Integer>> hm) {
+            if (root == null) {
+                return hm;
+            }
+
+            hm.putIfAbsent(hd, new ArrayList<Integer>());
+            hm.get(hd).add(root.data);
+
+            vertical_tree(root.left, hd - 1, hm);
+            vertical_tree(root.right, hd + 1, hm);
+
+            return hm;
+        }
     }
 
     public static void main(String[] args) {
@@ -476,13 +492,30 @@ public class Tree {
 
         Node returNode = tree.LevelTRaversalBuildTree(arr);
 
-        ArrayList<Node> list = new ArrayList<>();
+        HashMap<Integer, ArrayList<Integer>> hm = tree.vertical_tree(returNode, 0,
+                new HashMap<Integer, ArrayList<Integer>>());
 
-        HashMap<String, Integer> map = new HashMap<>();
+        ArrayList<Map.Entry<Integer, ArrayList<Integer>>> list = new ArrayList<>(hm.entrySet());
+        // System.out.println(Arrays.toString(list));
+        for (Map.Entry<Integer, ArrayList<Integer>> mp : list) {
+            System.out.println(mp.getKey() + " " + mp.getValue());
+        }
 
-        tree.Duplicate_Tree(returNode, list, map);
+        list.sort((a, b) -> Integer.compare(a.getKey(), b.getKey()));
+        System.out.println("");
+        ArrayList<ArrayList<Integer>> newlist = new ArrayList<>();
+        for (Map.Entry<Integer, ArrayList<Integer>> mp : list) {
+            System.out.println(mp.getValue());
+            newlist.add(mp.getValue());
+        }
+        System.out.println("newlsit is ::: " + newlist);
+        // ArrayList<Node> list = new ArrayList<>();
 
-        System.out.println(list);
+        // HashMap<String, Integer> map = new HashMap<>();
+
+        // tree.Duplicate_Tree(returNode, list, map);
+
+        // System.out.println(list);
         // Queue<BinaryTree.Level_Info> q = new LinkedList<>();
         // // tree.K_Level(returNode, 1, 3, q);
 
