@@ -10,10 +10,12 @@ public class Sort_fq {
             char ch = str.charAt(i);
 
             if (hm.containsKey(ch)) {
-                hm.put(ch, hm.getOrDefault(ch, 0) + 1);
+                hm.put(ch, hm.getOrDefault(ch, 1) + 1);
             } else {
-                hm.put(ch, i);
+                hm.put(ch, 1);
             }
         }
+
+        System.out.println(hm);
     }
 }
