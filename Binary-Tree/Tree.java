@@ -477,6 +477,9 @@ public class Tree {
 
             return hm;
         }
+     
+    
+    
     }
 
     public static void main(String[] args) {
@@ -484,7 +487,7 @@ public class Tree {
 
         // int arr[] = { 1, -1, 2, -1, 3, -1, 4, -1, -1 };
 
-        int arr[] = { 1, 2, 3, 4, 5, 6, 7 };
+        int arr[] = { 20, 8, 22, 5, 3, 4, 25, -1, -1, 10, 14, -1, -1, 28, -1 };
         // int arr[] = { 1, -1, -1 };
         // int arr[] = {1, 2, -1, 4, 5, -1, 6, -1, -1, 7, 8, -1, -1, -1, -1};
 
@@ -509,6 +512,12 @@ public class Tree {
             newlist.add(mp.getValue());
         }
         System.out.println("newlsit is ::: " + newlist);
+        ArrayList<Integer> bottom = new ArrayList<>();
+        for(ArrayList<Integer> innerlist : newlist){
+            System.out.println(innerlist);
+            bottom.add(innerlist.get(innerlist.size()-1));
+        }
+        System.out.println("bottom sis :: "+ bottom);
         // ArrayList<Node> list = new ArrayList<>();
 
         // HashMap<String, Integer> map = new HashMap<>();
