@@ -1,5 +1,4 @@
 
-import java.util.Arrays;
 
 public class Remove_Dup {
 
@@ -20,6 +19,7 @@ public class Remove_Dup {
             }
         }
 
-        System.out.println(Arrays.toString(nums));
+        // System.out.println(Arrays.toString(nums));
+        System.out.println("k is :: " + k);
     }
 }
