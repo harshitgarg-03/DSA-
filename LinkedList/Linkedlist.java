@@ -1,7 +1,6 @@
 
+import java.util.HashMap;
 import java.util.LinkedList;
-
-
 
 public class Linkedlist {
 
@@ -357,46 +356,46 @@ public class Linkedlist {
         }
     }
 
-    public static void DeleteNnode(int m, int n){
+    public static void DeleteNnode(int m, int n) {
         int cn = 0;
         int cm = 0;
         Node prev = null;
         Node temp = head;
-        while(temp != null){
-            if(cm < m){
+        while (temp != null) {
+            if (cm < m) {
                 // System.out.println(".....cm ");
                 prev = temp;
                 cm++;
-            }else if(cn < n) {
+            } else if (cn < n) {
                 // System.out.println(".....cn "+ prev.data);
                 prev.next = null;
-                cn++; 
-            }else {
+                cn++;
+            } else {
                 // System.out.println("........ ");
                 cn = 0;
                 cm = 1;
                 prev.next = temp;
             }
-            
+
             temp = temp.next;
         }
     }
 
-    public static void ODDorEVEN(Node head){
+    public static void ODDorEVEN(Node head) {
         LinkedList<Integer> list = new LinkedList<>();
 
         Node temp = head;
 
         while (temp != null) {
-            if(temp.data % 2 == 0){
+            if (temp.data % 2 == 0) {
                 list.add(temp.data);
             }
             temp = temp.next;
         }
 
         temp = head;
-        while(temp != null){
-            if(temp.data % 2 != 0){
+        while (temp != null) {
+            if (temp.data % 2 != 0) {
                 list.add(temp.data);
             }
             temp = temp.next;
@@ -419,6 +418,23 @@ public class Linkedlist {
         System.out.println();
     }
 
+    public static void CopyList(Node head) {
+        Node temp = head;
+        HashMap<Node, Node> hm = new HashMap<>();
+        while (temp != null) {
+            hm.put(temp, new Node(temp.data));
+            temp = temp.next;
+        }
+        temp = head;
+
+        while(temp != null){
+            Node copyNode = hm.get(temp);
+            copyNode.next = hm.get(temp.next);
+            temp = temp.next;
+        }
+
+    }
+
     public static void main(String args[]) {
         Linkedlist ll = new Linkedlist();
         addFirst(10);
@@ -438,8 +454,9 @@ public class Linkedlist {
         // AddMiddle(2, 9);
         // removeFirst();
         // removeLast();
-        PrintLinkedList();
-        System.out.println("size is :: " + size);
+        // PrintLinkedList();
+        // System.out.println("size is :: " + size);
+        CopyList(head);
         // recSearch(10);
         // reverse(head);
         // delNnodeEnd(size, 5);
@@ -455,7 +472,7 @@ public class Linkedlist {
         // ZigZag(head);
         // PrintLinkedList();
         // DeleteNnode(3, 2);
-        ODDorEVEN(head);
+        // ODDorEVEN(head);
         // PrintLinkedList();
     }
 }
