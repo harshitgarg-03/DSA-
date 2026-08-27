@@ -126,7 +126,7 @@ public class Linkedlist {
             head = prev;
             return;
         }
-
+ 
         Node succ = curr.next;
 
         curr.next = prev;
