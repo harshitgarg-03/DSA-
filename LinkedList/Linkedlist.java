@@ -124,7 +124,7 @@ public class Linkedlist {
 
         if (curr == null) {
             head = prev;
-            return;
+            return; 
         }
  
         Node succ = curr.next;
